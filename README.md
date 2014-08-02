@@ -1,5 +1,5 @@
-YC-Hackathon
-============
+Hackathon
+=========
 
 #### Ruby on Rails Env Setup
 1. [Homebrew](http://brew.sh/)
