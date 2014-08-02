@@ -34,8 +34,21 @@ YC-Hackathon
 
         brew install mysql
         mysql.server start
-        mysql -u root
+        test mysql working mysql -u root
         gem install mysql2
         
 
-[Test Project](http://first-test-project.herokuapp.com/)
+#### Setup App
+1. Colne Repo
+
+        git clone https://github.com/usunyu/YC-Hackathon
+
+2. Start Local
+        
+        bundle install
+        rails server
+
+#### Test App
+1. [Local App](http://localhost:3000/)
+
+2. [Heroku App](http://first-test-project.herokuapp.com/)
