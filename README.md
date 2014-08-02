@@ -39,3 +39,13 @@ YC-Hackathon
         
 
 [Test Project](http://first-test-project.herokuapp.com/)
+
+#### Setup Project
+1. Colne Repo
+
+        https://github.com/usunyu/YC-Hackathon
+
+2. Start Local
+        
+        bundle install
+        rails server
