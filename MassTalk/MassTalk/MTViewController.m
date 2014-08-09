@@ -159,7 +159,18 @@
 #pragma mark
 #pragma mark Chat Notifications
 
+// maybe delegate here
+int checker = 0;
+
 - (void)chatRoomDidReceiveMessageNotification:(NSNotification *)notification{
+    if (checker == 1) {
+        checker = 0;
+        return;
+    }
+    else {
+        checker = 1;
+    }
+    
     QBChatMessage *message = notification.userInfo[kMessage];
     NSString *roomJID = notification.userInfo[kRoomJID];
     
