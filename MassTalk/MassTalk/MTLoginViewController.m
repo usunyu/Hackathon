@@ -19,6 +19,18 @@
     return self;
 }
 
+- (void) autoLogin
+{
+    // Log in auto for test
+    _username = @"Sunny";
+    _password = @"12345678";
+    QBASessionCreationRequest *extendedAuthRequest = [QBASessionCreationRequest request];
+    extendedAuthRequest.userLogin = _username;
+    extendedAuthRequest.userPassword = _password;
+    
+	[QBAuth createSessionWithExtendedRequest:extendedAuthRequest delegate:self];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -27,14 +39,7 @@
     self.passwordTextField.delegate = self;
     self.passwordTextField.secureTextEntry = YES;
     
-    // Log in auto
-    _username = @"Sunny";
-    _password = @"12345678";
-    QBASessionCreationRequest *extendedAuthRequest = [QBASessionCreationRequest request];
-    extendedAuthRequest.userLogin = _username;
-    extendedAuthRequest.userPassword = _password;
-    
-	[QBAuth createSessionWithExtendedRequest:extendedAuthRequest delegate:self];
+    [self autoLogin];
 }
 
 - (void)didReceiveMemoryWarning

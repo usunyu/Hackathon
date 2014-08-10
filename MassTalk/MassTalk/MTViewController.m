@@ -24,10 +24,24 @@
     self.messagesTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 }
 
+#pragma mark CHAT CONTROLLER DELEGATE
+
+- (void) chatController:(ChatController *)chatController didSendMessage:(NSMutableDictionary *)message {
+    // Messages come prepackaged with the contents of the message and a timestamp in milliseconds
+    NSLog(@"Message Contents: %@", message[kMessageContent]);
+    NSLog(@"Timestamp: %@", message[kMessageTimestamp]);
+    
+    // Evaluate or add to the message here for example, if we wanted to assign the current userId:
+    message[@"sentByUserId"] = @"currentUserId";
+    
+    // Must add message to controller for it to show
+    [_chatController addNewMessage:message];
+}
+
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    
+
     if([MTLocalStorageService shared].currentUser != nil){
         // get dialogs
         [QBChat dialogsWithExtendedRequest:nil delegate:self];
@@ -46,7 +60,7 @@
 
 - (void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
-    
+
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         // Show log in
@@ -88,9 +102,10 @@
         
         // get messages history
         [QBChat messagesWithDialogID:self.dialog.ID extendedRequest:nil delegate:self];
-    }else if (result.success && [result isKindOfClass:[QBUUserPagedResult class]]) {
+    }else if (result.success && [result isKindOfClass:[QBUUserPagedResult class]]) {    // login success
         QBUUserPagedResult *res = (QBUUserPagedResult *)result;
         [MTLocalStorageService shared].users = res.users;
+//        [self presentViewController:_chatController animated:YES completion:nil];
     }else if (result.success && [result isKindOfClass:QBChatHistoryMessageResult.class]) {
         QBChatHistoryMessageResult *res = (QBChatHistoryMessageResult *)result;
         NSArray *messages = res.messages;

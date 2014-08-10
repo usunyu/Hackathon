@@ -38,6 +38,16 @@
 		083180B91992218800F47384 /* libresolv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 083180B81992218800F47384 /* libresolv.dylib */; };
 		083180BB1992218E00F47384 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 083180BA1992218E00F47384 /* libxml2.dylib */; };
 		083180BF1992FDF600F47384 /* MTTalkServices.m in Sources */ = {isa = PBXBuildFile; fileRef = 083180BE1992FDF600F47384 /* MTTalkServices.m */; };
+		0893DC171996EEFA00459A58 /* SimpleChatIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 0893DC161996EEFA00459A58 /* SimpleChatIcon.png */; };
+		0893DC1B1996EFB300459A58 /* back3.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 0893DC181996EFB300459A58 /* back3.jpeg */; };
+		0893DC1C1996EFB300459A58 /* back4.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 0893DC191996EFB300459A58 /* back4.jpeg */; };
+		0893DC1D1996EFB300459A58 /* back5.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 0893DC1A1996EFB300459A58 /* back5.jpeg */; };
+		0893DC331996FA3000459A58 /* ChatController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0893DC291996FA3000459A58 /* ChatController.m */; };
+		0893DC341996FA3000459A58 /* ChatInput.m in Sources */ = {isa = PBXBuildFile; fileRef = 0893DC2B1996FA3000459A58 /* ChatInput.m */; };
+		0893DC351996FA3000459A58 /* License in Resources */ = {isa = PBXBuildFile; fileRef = 0893DC2C1996FA3000459A58 /* License */; };
+		0893DC361996FA3000459A58 /* MessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0893DC2E1996FA3000459A58 /* MessageCell.m */; };
+		0893DC371996FA3000459A58 /* Previous.png in Resources */ = {isa = PBXBuildFile; fileRef = 0893DC301996FA3000459A58 /* Previous.png */; };
+		0893DC381996FA3000459A58 /* TopBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 0893DC321996FA3000459A58 /* TopBar.m */; };
 		08DEF5E91995EA8B00C26DE1 /* MTLocalStorageService.m in Sources */ = {isa = PBXBuildFile; fileRef = 08DEF5E81995EA8B00C26DE1 /* MTLocalStorageService.m */; };
 		08DEF5EC1995F61C00C26DE1 /* MTLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 08DEF5EB1995F61C00C26DE1 /* MTLoginViewController.m */; };
 		08DEF5F41995FA5300C26DE1 /* back2.png in Resources */ = {isa = PBXBuildFile; fileRef = 08DEF5F21995FA5300C26DE1 /* back2.png */; };
@@ -93,6 +103,21 @@
 		083180BA1992218E00F47384 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
 		083180BD1992FDF600F47384 /* MTTalkServices.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTTalkServices.h; sourceTree = "<group>"; };
 		083180BE1992FDF600F47384 /* MTTalkServices.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTTalkServices.m; sourceTree = "<group>"; };
+		0893DC161996EEFA00459A58 /* SimpleChatIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SimpleChatIcon.png; sourceTree = "<group>"; };
+		0893DC181996EFB300459A58 /* back3.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = back3.jpeg; sourceTree = "<group>"; };
+		0893DC191996EFB300459A58 /* back4.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = back4.jpeg; sourceTree = "<group>"; };
+		0893DC1A1996EFB300459A58 /* back5.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = back5.jpeg; sourceTree = "<group>"; };
+		0893DC281996FA3000459A58 /* ChatController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatController.h; sourceTree = "<group>"; };
+		0893DC291996FA3000459A58 /* ChatController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatController.m; sourceTree = "<group>"; };
+		0893DC2A1996FA3000459A58 /* ChatInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatInput.h; sourceTree = "<group>"; };
+		0893DC2B1996FA3000459A58 /* ChatInput.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatInput.m; sourceTree = "<group>"; };
+		0893DC2C1996FA3000459A58 /* License */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = License; sourceTree = "<group>"; };
+		0893DC2D1996FA3000459A58 /* MessageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageCell.h; sourceTree = "<group>"; };
+		0893DC2E1996FA3000459A58 /* MessageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageCell.m; sourceTree = "<group>"; };
+		0893DC2F1996FA3000459A58 /* MyMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyMacros.h; sourceTree = "<group>"; };
+		0893DC301996FA3000459A58 /* Previous.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Previous.png; sourceTree = "<group>"; };
+		0893DC311996FA3000459A58 /* TopBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopBar.h; sourceTree = "<group>"; };
+		0893DC321996FA3000459A58 /* TopBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopBar.m; sourceTree = "<group>"; };
 		08DEF5E71995EA8B00C26DE1 /* MTLocalStorageService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTLocalStorageService.h; sourceTree = "<group>"; };
 		08DEF5E81995EA8B00C26DE1 /* MTLocalStorageService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTLocalStorageService.m; sourceTree = "<group>"; };
 		08DEF5EA1995F61C00C26DE1 /* MTLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTLoginViewController.h; sourceTree = "<group>"; };
@@ -196,6 +221,7 @@
 				0831807719921A2100F47384 /* MTAppDelegate.m */,
 				08DEF5EF1995F83E00C26DE1 /* Images */,
 				08DEF5F61996C23400C26DE1 /* Views */,
+				0893DC271996FA3000459A58 /* ChatController */,
 				08DEF5E61995CF0A00C26DE1 /* ViewController */,
 				083180BC1992FDB300F47384 /* Services */,
 				0831807919921A2100F47384 /* Main.storyboard */,
@@ -245,6 +271,24 @@
 			name = Services;
 			sourceTree = "<group>";
 		};
+		0893DC271996FA3000459A58 /* ChatController */ = {
+			isa = PBXGroup;
+			children = (
+				0893DC281996FA3000459A58 /* ChatController.h */,
+				0893DC291996FA3000459A58 /* ChatController.m */,
+				0893DC2A1996FA3000459A58 /* ChatInput.h */,
+				0893DC2B1996FA3000459A58 /* ChatInput.m */,
+				0893DC2C1996FA3000459A58 /* License */,
+				0893DC2D1996FA3000459A58 /* MessageCell.h */,
+				0893DC2E1996FA3000459A58 /* MessageCell.m */,
+				0893DC2F1996FA3000459A58 /* MyMacros.h */,
+				0893DC301996FA3000459A58 /* Previous.png */,
+				0893DC311996FA3000459A58 /* TopBar.h */,
+				0893DC321996FA3000459A58 /* TopBar.m */,
+			);
+			path = ChatController;
+			sourceTree = "<group>";
+		};
 		08DEF5E61995CF0A00C26DE1 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -259,8 +303,12 @@
 		08DEF5EF1995F83E00C26DE1 /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				08DEF5F21995FA5300C26DE1 /* back2.png */,
+				0893DC161996EEFA00459A58 /* SimpleChatIcon.png */,
 				08DEF5F31995FA5300C26DE1 /* back1.jpeg */,
+				08DEF5F21995FA5300C26DE1 /* back2.png */,
+				0893DC181996EFB300459A58 /* back3.jpeg */,
+				0893DC191996EFB300459A58 /* back4.jpeg */,
+				0893DC1A1996EFB300459A58 /* back5.jpeg */,
 			);
 			name = Images;
 			sourceTree = "<group>";
@@ -354,11 +402,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0893DC171996EEFA00459A58 /* SimpleChatIcon.png in Resources */,
+				0893DC371996FA3000459A58 /* Previous.png in Resources */,
 				0831808019921A2100F47384 /* Images.xcassets in Resources */,
+				0893DC1B1996EFB300459A58 /* back3.jpeg in Resources */,
+				0893DC1C1996EFB300459A58 /* back4.jpeg in Resources */,
 				0831807219921A2100F47384 /* InfoPlist.strings in Resources */,
 				0831807B19921A2100F47384 /* Main.storyboard in Resources */,
 				08DEF5F41995FA5300C26DE1 /* back2.png in Resources */,
 				08DEF5F51995FA5300C26DE1 /* back1.jpeg in Resources */,
+				0893DC351996FA3000459A58 /* License in Resources */,
+				0893DC1D1996EFB300459A58 /* back5.jpeg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -378,12 +432,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				08DEF5F91996C29A00C26DE1 /* MTTableViewCell.m in Sources */,
+				0893DC381996FA3000459A58 /* TopBar.m in Sources */,
 				083180BF1992FDF600F47384 /* MTTalkServices.m in Sources */,
 				0831807419921A2100F47384 /* main.m in Sources */,
+				0893DC341996FA3000459A58 /* ChatInput.m in Sources */,
 				0831807E19921A2100F47384 /* MTViewController.m in Sources */,
+				0893DC361996FA3000459A58 /* MessageCell.m in Sources */,
 				08DEF5E91995EA8B00C26DE1 /* MTLocalStorageService.m in Sources */,
 				0831807819921A2100F47384 /* MTAppDelegate.m in Sources */,
 				08DEF5EC1995F61C00C26DE1 /* MTLoginViewController.m in Sources */,
+				0893DC331996FA3000459A58 /* ChatController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
