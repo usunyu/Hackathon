@@ -41,7 +41,7 @@ Hackathon
 #### Setup App
 1. Colne Repo
 
-        git clone https://github.com/usunyu/YC-Hackathon
+        git clone https://github.com/usunyu/Hackathon
 
 2. Start Local
         
