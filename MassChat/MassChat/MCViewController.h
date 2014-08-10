@@ -15,6 +15,8 @@
 @property NSString *password;
 
 @property (strong, nonatomic) IBOutlet UILabel *tapLabel;
+@property (strong, nonatomic) IBOutlet UILabel *loadLabel;
+
 @property (strong, nonatomic) ChatController * chatController;
 
 @property (nonatomic, strong) QBChatDialog *dialog;

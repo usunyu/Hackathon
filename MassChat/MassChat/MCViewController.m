@@ -34,7 +34,7 @@
 - (void) autoLogin
 {
     // Log in auto for test
-    _username = @"Sunny";
+    _username = @"Chris";
     _password = @"12345678";
     QBASessionCreationRequest *extendedAuthRequest = [QBASessionCreationRequest request];
     extendedAuthRequest.userLogin = _username;
@@ -48,7 +48,7 @@
     if (!self.chatController) self.chatController = [ChatController new];
     self.chatController.delegate = self;
     
-    self.tapLabel.text = @"Loading ...";
+    self.loadLabel.text = @"Loading ...";
     [self autoLogin];
 }
 
@@ -73,9 +73,6 @@
             
             // Login to QuickBlox Chat
             [[MCChatService instance] loginWithUser:currentUser completionBlock:^{
-                // show chat view
-                [self presentViewController:self.chatController animated:YES completion:nil];
-                
                 if([MCLocalStorageService shared].currentUser != nil){
                     // get dialogs
                     [QBChat dialogsWithExtendedRequest:nil delegate:self];
@@ -85,6 +82,9 @@
                 [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(chatRoomDidReceiveMessageNotification:) name:kNotificationDidReceiveNewMessageFromRoom object:nil];
             }];
             
+            // show chat view
+            [self presentViewController:self.chatController animated:YES completion:nil];
+            self.loadLabel.text = nil;
         }else{
             NSString *errorMessage = [[result.errors description] stringByReplacingOccurrencesOfString:@"(" withString:@""];
             errorMessage = [errorMessage stringByReplacingOccurrencesOfString:@")" withString:@""];

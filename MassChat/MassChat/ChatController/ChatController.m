@@ -104,10 +104,25 @@ static int chatInputStartingHeight = 40;
     _opponentBubbleColor = [UIColor whiteColor];
     
     // Add background
-    UIImageView *CurrentImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"back6.jpg"]];
+    UIImage *backImage =[UIImage imageNamed:@"back6.jpg"];
     
-    CurrentImage.frame = _myCollectionView.bounds;
-    _myCollectionView.backgroundView = CurrentImage;
+    // Resize the image
+    CGSize size = CGSizeMake(_myCollectionView.bounds.size.width, _myCollectionView.bounds.size.height);
+    // Create a bitmap graphics context
+    // This will also set it as the current context
+    UIGraphicsBeginImageContext(size);
+    
+    // Draw the scaled image in the current context
+    [backImage drawInRect:CGRectMake(0, 0, size.width, size.height)];
+    
+    // Create a new image from current context
+    UIImage* scaledImage = UIGraphicsGetImageFromCurrentImageContext();
+    
+    // Pop the current context from the stack
+    UIGraphicsEndImageContext();
+    
+    self.view.backgroundColor = [UIColor colorWithPatternImage:scaledImage];
+    _myCollectionView.backgroundColor = [UIColor clearColor];
 }
 
 - (void) viewWillAppear:(BOOL)animated
@@ -242,7 +257,7 @@ static int chatInputStartingHeight = 40;
         [UIView animateWithDuration:duration delay:0.0 options:(animationCurve << 16) animations:^{
             
             _myCollectionView.frame = (UIInterfaceOrientationIsLandscape([[UIApplication sharedApplication]statusBarOrientation])) ? CGRectMake(0, 0, ScreenHeight(), ScreenWidth() - height(_chatInput) - keyboardHeight) : CGRectMake(0, 0, ScreenWidth(), ScreenHeight() - height(_chatInput) - keyboardHeight);
-            
+
         } completion:^(BOOL finished) {
             if (finished) {
                 
@@ -324,16 +339,15 @@ static int chatInputStartingHeight = 40;
     }
 }
 
-/* Scroll To Top
+// Scroll To Top
 - (void) scrollToTop {
     if (_myCollectionView.numberOfSections >= 1 && [_myCollectionView numberOfItemsInSection:0] >= 1) {
         NSIndexPath *firstIndex = [NSIndexPath indexPathForRow:0 inSection:0];
         [_myCollectionView scrollToItemAtIndexPath:firstIndex atScrollPosition:UICollectionViewScrollPositionTop animated:YES];
     }
 }
-*/
 
-/* To Monitor Scroll
+// To Monitor Scroll
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     CGFloat difference = lastContentOffset - scrollView.contentOffset.y;
     if (lastContentOffset > scrollView.contentOffset.y && difference > 10) {
@@ -345,7 +359,6 @@ static int chatInputStartingHeight = 40;
     }
     lastContentOffset = scrollView.contentOffset.y;
 }
-*/
 
 #pragma mark COLLECTION VIEW DELEGATE
 
@@ -413,19 +426,19 @@ static int chatInputStartingHeight = 40;
             message[kMessageRuntimeSentBy] = [NSNumber numberWithInt:kSentByUser];
         }
         else {
-            // Set random pic
-            int r = arc4random() % 15;
-            
-            UIImage *image = [UIImage imageNamed:[NSString stringWithFormat:@"pic%d.jpg", r]];
-            [image drawInRect:CGRectMake(0, 0, 100, 100)];
-            self.opponentImg = image;
-            
             message[kMessageRuntimeSentBy] = [NSNumber numberWithInt:kSentByOpponent];
         }
     }
     
+    // Set random pic
+    int r = arc4random() % 15;
+    // TODO: use dict to map user and their pic
+    UIImage *image = [UIImage imageNamed:[NSString stringWithFormat:@"pic%d.jpg", r]];
+    [image drawInRect:CGRectMake(0, 0, 100, 100)];
+//    self.opponentImg = image;
+    
     // Set the cell
-    cell.opponentImage = _opponentImg;
+    cell.opponentImage = image;
     if (_opponentBubbleColor) cell.opponentColor = _opponentBubbleColor;
     if (_userBubbleColor) cell.userColor = _userBubbleColor;
     cell.message = message;
