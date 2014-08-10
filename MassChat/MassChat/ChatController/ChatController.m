@@ -16,6 +16,7 @@
 #import "ChatController.h"
 #import "MessageCell.h"
 #import "MyMacros.h"
+#import "MCSettingController.h"
 
 static NSString * kMessageCellReuseIdentifier = @"MessageCell";
 static int connectionStatusViewTag = 1701;
@@ -205,13 +206,19 @@ static int chatInputStartingHeight = 40;
 #pragma mark TOP BAR DELEGATE
 
 - (void) topLeftPressed {
-    if ([(NSObject *)_delegate respondsToSelector:@selector(closeChatController:)]) {
-        [_delegate closeChatController:self];
-    }
-    else {
-        NSLog(@"ChatController: AutoClosing");
-        [self dismissViewControllerAnimated:YES completion:nil];
-    }
+//    if ([(NSObject *)_delegate respondsToSelector:@selector(closeChatController:)]) {
+//        [_delegate closeChatController:self];
+//    }
+//    else {
+//        NSLog(@"ChatController: AutoClosing");
+//        [self dismissViewControllerAnimated:YES completion:nil];
+//    }
+    
+    MCSettingController *settingView = [[MCSettingController alloc] initWithNibName:nil bundle:nil];
+    settingView.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+    [self presentViewController:settingView animated:YES completion:^{
+    
+    }];
 }
 
 - (void) topMiddlePressed {

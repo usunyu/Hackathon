@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0832E4DD19977E0200D59A5A /* Map.png in Resources */ = {isa = PBXBuildFile; fileRef = 0832E4DB19977E0200D59A5A /* Map.png */; };
+		0832E4DE19977E0200D59A5A /* Menu.png in Resources */ = {isa = PBXBuildFile; fileRef = 0832E4DC19977E0200D59A5A /* Menu.png */; };
+		0832E4F419978B3200D59A5A /* MCSettingController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0832E4F219978B3200D59A5A /* MCSettingController.m */; };
+		0832E4F519978B3200D59A5A /* MCSettingController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0832E4F319978B3200D59A5A /* MCSettingController.xib */; };
 		0893DC46199715A700459A58 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0893DC45199715A700459A58 /* Foundation.framework */; };
 		0893DC48199715A700459A58 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0893DC47199715A700459A58 /* CoreGraphics.framework */; };
 		0893DC4A199715A700459A58 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0893DC49199715A700459A58 /* UIKit.framework */; };
@@ -82,6 +86,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0832E4DB19977E0200D59A5A /* Map.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Map.png; sourceTree = "<group>"; };
+		0832E4DC19977E0200D59A5A /* Menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Menu.png; sourceTree = "<group>"; };
+		0832E4F119978B3200D59A5A /* MCSettingController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCSettingController.h; sourceTree = "<group>"; };
+		0832E4F219978B3200D59A5A /* MCSettingController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCSettingController.m; sourceTree = "<group>"; };
+		0832E4F319978B3200D59A5A /* MCSettingController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MCSettingController.xib; sourceTree = "<group>"; };
 		0893DC42199715A700459A58 /* MassChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MassChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0893DC45199715A700459A58 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		0893DC47199715A700459A58 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -198,6 +207,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0832E4DF199780F300D59A5A /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				0832E4F119978B3200D59A5A /* MCSettingController.h */,
+				0832E4F219978B3200D59A5A /* MCSettingController.m */,
+				0832E4F319978B3200D59A5A /* MCSettingController.xib */,
+			);
+			name = ViewController;
+			sourceTree = "<group>";
+		};
 		0893DC39199715A700459A58 = {
 			isa = PBXGroup;
 			children = (
@@ -251,6 +270,7 @@
 				0893DCC919972B3E00459A58 /* Sounds */,
 				0893DC8C1997176C00459A58 /* Images */,
 				0893DC7A1997169700459A58 /* ChatController */,
+				0832E4DF199780F300D59A5A /* ViewController */,
 				0893DC54199715A700459A58 /* MCAppDelegate.h */,
 				0893DC55199715A700459A58 /* MCAppDelegate.m */,
 				0893DC57199715A700459A58 /* Main.storyboard */,
@@ -294,6 +314,8 @@
 		0893DC7A1997169700459A58 /* ChatController */ = {
 			isa = PBXGroup;
 			children = (
+				0832E4DB19977E0200D59A5A /* Map.png */,
+				0832E4DC19977E0200D59A5A /* Menu.png */,
 				0893DC7B1997169700459A58 /* ChatController.h */,
 				0893DC7C1997169700459A58 /* ChatController.m */,
 				0893DC7D1997169700459A58 /* ChatInput.h */,
@@ -447,6 +469,7 @@
 				0893DCE0199748B600459A58 /* pic4.jpg in Resources */,
 				0893DC931997176C00459A58 /* back3.jpeg in Resources */,
 				0893DC50199715A700459A58 /* InfoPlist.strings in Resources */,
+				0832E4DD19977E0200D59A5A /* Map.png in Resources */,
 				0893DCE9199748B600459A58 /* pic13.jpg in Resources */,
 				0893DCEA199748B600459A58 /* pic14.jpg in Resources */,
 				0893DCE4199748B600459A58 /* pic8.jpg in Resources */,
@@ -460,10 +483,12 @@
 				0893DC881997169700459A58 /* License in Resources */,
 				0893DC911997176C00459A58 /* back1.jpeg in Resources */,
 				0893DCEB199748B600459A58 /* pic15.jpg in Resources */,
+				0832E4F519978B3200D59A5A /* MCSettingController.xib in Resources */,
 				0893DC59199715A700459A58 /* Main.storyboard in Resources */,
 				0893DCCD19972B3E00459A58 /* message_sent.aiff in Resources */,
 				0893DCE8199748B600459A58 /* pic12.jpg in Resources */,
 				0893DCEF1997551D00459A58 /* back6.jpg in Resources */,
+				0832E4DE19977E0200D59A5A /* Menu.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -482,6 +507,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0832E4F419978B3200D59A5A /* MCSettingController.m in Sources */,
 				0893DC56199715A700459A58 /* MCAppDelegate.m in Sources */,
 				0893DC5C199715A700459A58 /* MCViewController.m in Sources */,
 				0893DC52199715A700459A58 /* main.m in Sources */,

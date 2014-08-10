@@ -17,6 +17,7 @@
     [QBSettings setAuthorizationKey:@"N6zpRQgnHaZTXHq"];
     [QBSettings setAuthorizationSecret:@"nWfKxY9XnwBTY6p"];
     [QBSettings setAccountKey:@"uyk5BkyvY7uqCxZsMhit"];
+    
     // Override point for customization after application launch.
     return YES;
 }

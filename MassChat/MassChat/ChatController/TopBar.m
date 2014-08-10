@@ -56,7 +56,7 @@
         [_leftBtn addTarget:self action:@selector(topLeftBtnPressed:) forControlEvents:UIControlEventTouchUpInside];
         _leftBtn.autoresizingMask = UIViewAutoresizingFlexibleRightMargin;
         _leftBtn.imageEdgeInsets = UIEdgeInsetsMake(7, 7, 7, 7);
-        [_leftBtn setImage:[UIImage imageNamed:@"Previous.png"] forState:UIControlStateNormal];
+        [_leftBtn setImage:[UIImage imageNamed:@"Menu.png"] forState:UIControlStateNormal];
         [self addSubview:_leftBtn];
         
         _rightBtn = [UIButton buttonWithType:UIButtonTypeSystem];
@@ -64,6 +64,7 @@
         [_rightBtn setTintColor:_tintColor];
         [_rightBtn addTarget:self action:@selector(topRightBtnPressed:) forControlEvents:UIControlEventTouchUpInside];
         _rightBtn.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin;
+        [_rightBtn setImage:[UIImage imageNamed:@"Map.png"] forState:UIControlStateNormal];
         [self addSubview:_rightBtn];
         
         _middleBtn = [UIButton buttonWithType:UIButtonTypeSystem];

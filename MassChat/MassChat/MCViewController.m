@@ -44,6 +44,7 @@
 }
 
 - (void) handleTap:(UITapGestureRecognizer *)tap {
+    self.view.userInteractionEnabled = NO;
     
     if (!self.chatController) self.chatController = [ChatController new];
     self.chatController.delegate = self;
