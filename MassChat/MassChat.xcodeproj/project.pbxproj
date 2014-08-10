@@ -67,6 +67,8 @@
 		0893DCE9199748B600459A58 /* pic13.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0893DCDA199748B600459A58 /* pic13.jpg */; };
 		0893DCEA199748B600459A58 /* pic14.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0893DCDB199748B600459A58 /* pic14.jpg */; };
 		0893DCEB199748B600459A58 /* pic15.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0893DCDC199748B600459A58 /* pic15.jpg */; };
+		0893DCED1997512400459A58 /* back5.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 0893DCEC1997512400459A58 /* back5.jpeg */; };
+		0893DCEF1997551D00459A58 /* back6.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0893DCEE1997551D00459A58 /* back6.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -152,6 +154,8 @@
 		0893DCDA199748B600459A58 /* pic13.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pic13.jpg; sourceTree = "<group>"; };
 		0893DCDB199748B600459A58 /* pic14.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pic14.jpg; sourceTree = "<group>"; };
 		0893DCDC199748B600459A58 /* pic15.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pic15.jpg; sourceTree = "<group>"; };
+		0893DCEC1997512400459A58 /* back5.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = back5.jpeg; sourceTree = "<group>"; };
+		0893DCEE1997551D00459A58 /* back6.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = back6.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -308,6 +312,8 @@
 		0893DC8C1997176C00459A58 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				0893DCEE1997551D00459A58 /* back6.jpg */,
+				0893DCEC1997512400459A58 /* back5.jpeg */,
 				0893DCCE199748B600459A58 /* pic1.jpg */,
 				0893DCCF199748B600459A58 /* pic2.jpg */,
 				0893DCD0199748B600459A58 /* pic3.jpg */,
@@ -449,6 +455,7 @@
 				0893DCDE199748B600459A58 /* pic2.jpg in Resources */,
 				0893DCE7199748B600459A58 /* pic11.jpg in Resources */,
 				0893DCE2199748B600459A58 /* pic6.jpg in Resources */,
+				0893DCED1997512400459A58 /* back5.jpeg in Resources */,
 				0893DCE5199748B600459A58 /* pic9.jpg in Resources */,
 				0893DC881997169700459A58 /* License in Resources */,
 				0893DC911997176C00459A58 /* back1.jpeg in Resources */,
@@ -456,6 +463,7 @@
 				0893DC59199715A700459A58 /* Main.storyboard in Resources */,
 				0893DCCD19972B3E00459A58 /* message_sent.aiff in Resources */,
 				0893DCE8199748B600459A58 /* pic12.jpg in Resources */,
+				0893DCEF1997551D00459A58 /* back6.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

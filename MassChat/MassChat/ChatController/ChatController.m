@@ -100,6 +100,14 @@ static int chatInputStartingHeight = 40;
                                              selector:@selector(keyboardWillHide:)
                                                  name:UIKeyboardWillHideNotification
                                                object:nil];
+    _userBubbleColor = [UIColor whiteColor];
+    _opponentBubbleColor = [UIColor whiteColor];
+    
+    // Add background
+    UIImageView *CurrentImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"back6.jpg"]];
+    
+    CurrentImage.frame = _myCollectionView.bounds;
+    _myCollectionView.backgroundView = CurrentImage;
 }
 
 - (void) viewWillAppear:(BOOL)animated
