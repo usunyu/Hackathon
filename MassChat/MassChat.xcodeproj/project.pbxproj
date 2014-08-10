@@ -1,0 +1,722 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0893DC46199715A700459A58 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0893DC45199715A700459A58 /* Foundation.framework */; };
+		0893DC48199715A700459A58 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0893DC47199715A700459A58 /* CoreGraphics.framework */; };
+		0893DC4A199715A700459A58 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0893DC49199715A700459A58 /* UIKit.framework */; };
+		0893DC50199715A700459A58 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0893DC4E199715A700459A58 /* InfoPlist.strings */; };
+		0893DC52199715A700459A58 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0893DC51199715A700459A58 /* main.m */; };
+		0893DC56199715A700459A58 /* MCAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0893DC55199715A700459A58 /* MCAppDelegate.m */; };
+		0893DC59199715A700459A58 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0893DC57199715A700459A58 /* Main.storyboard */; };
+		0893DC5C199715A700459A58 /* MCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0893DC5B199715A700459A58 /* MCViewController.m */; };
+		0893DC5E199715A700459A58 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0893DC5D199715A700459A58 /* Images.xcassets */; };
+		0893DC65199715A700459A58 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0893DC64199715A700459A58 /* XCTest.framework */; };
+		0893DC66199715A700459A58 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0893DC45199715A700459A58 /* Foundation.framework */; };
+		0893DC67199715A700459A58 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0893DC49199715A700459A58 /* UIKit.framework */; };
+		0893DC6F199715A700459A58 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0893DC6D199715A700459A58 /* InfoPlist.strings */; };
+		0893DC71199715A700459A58 /* MassChatTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0893DC70199715A700459A58 /* MassChatTests.m */; };
+		0893DC861997169700459A58 /* ChatController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0893DC7C1997169700459A58 /* ChatController.m */; };
+		0893DC871997169700459A58 /* ChatInput.m in Sources */ = {isa = PBXBuildFile; fileRef = 0893DC7E1997169700459A58 /* ChatInput.m */; };
+		0893DC881997169700459A58 /* License in Resources */ = {isa = PBXBuildFile; fileRef = 0893DC7F1997169700459A58 /* License */; };
+		0893DC891997169700459A58 /* MessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0893DC811997169700459A58 /* MessageCell.m */; };
+		0893DC8A1997169700459A58 /* Previous.png in Resources */ = {isa = PBXBuildFile; fileRef = 0893DC831997169700459A58 /* Previous.png */; };
+		0893DC8B1997169700459A58 /* TopBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 0893DC851997169700459A58 /* TopBar.m */; };
+		0893DC911997176C00459A58 /* back1.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 0893DC8D1997176C00459A58 /* back1.jpeg */; };
+		0893DC921997176C00459A58 /* back2.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 0893DC8E1997176C00459A58 /* back2.jpeg */; };
+		0893DC931997176C00459A58 /* back3.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 0893DC8F1997176C00459A58 /* back3.jpeg */; };
+		0893DC941997176C00459A58 /* back4.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 0893DC901997176C00459A58 /* back4.jpeg */; };
+		0893DC961997191400459A58 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 0893DC951997191400459A58 /* Icon.png */; };
+		0893DC9D1997272E00459A58 /* Quickblox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0893DC9C1997272E00459A58 /* Quickblox.framework */; };
+		0893DC9F199727B300459A58 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0893DC9E199727B300459A58 /* CFNetwork.framework */; };
+		0893DCA1199727BB00459A58 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0893DCA0199727BB00459A58 /* SystemConfiguration.framework */; };
+		0893DCA3199727C100459A58 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0893DCA2199727C100459A58 /* MobileCoreServices.framework */; };
+		0893DCA5199727CE00459A58 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0893DCA4199727CE00459A58 /* CoreLocation.framework */; };
+		0893DCA7199727D300459A58 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0893DCA6199727D300459A58 /* CoreData.framework */; };
+		0893DCA9199727D900459A58 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0893DCA8199727D900459A58 /* AudioToolbox.framework */; };
+		0893DCAB199727E000459A58 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0893DCAA199727E000459A58 /* CoreMedia.framework */; };
+		0893DCAD199727E600459A58 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0893DCAC199727E600459A58 /* Accelerate.framework */; };
+		0893DCAF199727EC00459A58 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0893DCAE199727EC00459A58 /* CoreVideo.framework */; };
+		0893DCB1199727F200459A58 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0893DCB0199727F200459A58 /* AVFoundation.framework */; };
+		0893DCB3199727F800459A58 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0893DCB2199727F800459A58 /* QuartzCore.framework */; };
+		0893DCB5199727FE00459A58 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0893DCB4199727FE00459A58 /* Security.framework */; };
+		0893DCB71997280400459A58 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 0893DCB61997280400459A58 /* libz.dylib */; };
+		0893DCB91997280A00459A58 /* libresolv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 0893DCB81997280A00459A58 /* libresolv.dylib */; };
+		0893DCBB1997280F00459A58 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 0893DCBA1997280F00459A58 /* libxml2.dylib */; };
+		0893DCC519972A0C00459A58 /* MCLocalStorageService.m in Sources */ = {isa = PBXBuildFile; fileRef = 0893DCC419972A0C00459A58 /* MCLocalStorageService.m */; };
+		0893DCC819972A3400459A58 /* MCChatService.m in Sources */ = {isa = PBXBuildFile; fileRef = 0893DCC719972A3400459A58 /* MCChatService.m */; };
+		0893DCCC19972B3E00459A58 /* message_received.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 0893DCCA19972B3E00459A58 /* message_received.aiff */; };
+		0893DCCD19972B3E00459A58 /* message_sent.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 0893DCCB19972B3E00459A58 /* message_sent.aiff */; };
+		0893DCDD199748B600459A58 /* pic1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0893DCCE199748B600459A58 /* pic1.jpg */; };
+		0893DCDE199748B600459A58 /* pic2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0893DCCF199748B600459A58 /* pic2.jpg */; };
+		0893DCDF199748B600459A58 /* pic3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0893DCD0199748B600459A58 /* pic3.jpg */; };
+		0893DCE0199748B600459A58 /* pic4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0893DCD1199748B600459A58 /* pic4.jpg */; };
+		0893DCE1199748B600459A58 /* pic5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0893DCD2199748B600459A58 /* pic5.jpg */; };
+		0893DCE2199748B600459A58 /* pic6.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0893DCD3199748B600459A58 /* pic6.jpg */; };
+		0893DCE3199748B600459A58 /* pic7.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0893DCD4199748B600459A58 /* pic7.jpg */; };
+		0893DCE4199748B600459A58 /* pic8.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0893DCD5199748B600459A58 /* pic8.jpg */; };
+		0893DCE5199748B600459A58 /* pic9.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0893DCD6199748B600459A58 /* pic9.jpg */; };
+		0893DCE6199748B600459A58 /* pic10.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0893DCD7199748B600459A58 /* pic10.jpg */; };
+		0893DCE7199748B600459A58 /* pic11.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0893DCD8199748B600459A58 /* pic11.jpg */; };
+		0893DCE8199748B600459A58 /* pic12.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0893DCD9199748B600459A58 /* pic12.jpg */; };
+		0893DCE9199748B600459A58 /* pic13.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0893DCDA199748B600459A58 /* pic13.jpg */; };
+		0893DCEA199748B600459A58 /* pic14.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0893DCDB199748B600459A58 /* pic14.jpg */; };
+		0893DCEB199748B600459A58 /* pic15.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0893DCDC199748B600459A58 /* pic15.jpg */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		0893DC68199715A700459A58 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0893DC3A199715A700459A58 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0893DC41199715A700459A58;
+			remoteInfo = MassChat;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0893DC42199715A700459A58 /* MassChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MassChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		0893DC45199715A700459A58 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		0893DC47199715A700459A58 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		0893DC49199715A700459A58 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		0893DC4D199715A700459A58 /* MassChat-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MassChat-Info.plist"; sourceTree = "<group>"; };
+		0893DC4F199715A700459A58 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		0893DC51199715A700459A58 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		0893DC53199715A700459A58 /* MassChat-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MassChat-Prefix.pch"; sourceTree = "<group>"; };
+		0893DC54199715A700459A58 /* MCAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MCAppDelegate.h; sourceTree = "<group>"; };
+		0893DC55199715A700459A58 /* MCAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MCAppDelegate.m; sourceTree = "<group>"; };
+		0893DC58199715A700459A58 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		0893DC5A199715A700459A58 /* MCViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MCViewController.h; sourceTree = "<group>"; };
+		0893DC5B199715A700459A58 /* MCViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MCViewController.m; sourceTree = "<group>"; };
+		0893DC5D199715A700459A58 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		0893DC63199715A700459A58 /* MassChatTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MassChatTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		0893DC64199715A700459A58 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		0893DC6C199715A700459A58 /* MassChatTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MassChatTests-Info.plist"; sourceTree = "<group>"; };
+		0893DC6E199715A700459A58 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		0893DC70199715A700459A58 /* MassChatTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MassChatTests.m; sourceTree = "<group>"; };
+		0893DC7B1997169700459A58 /* ChatController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatController.h; sourceTree = "<group>"; };
+		0893DC7C1997169700459A58 /* ChatController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatController.m; sourceTree = "<group>"; };
+		0893DC7D1997169700459A58 /* ChatInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatInput.h; sourceTree = "<group>"; };
+		0893DC7E1997169700459A58 /* ChatInput.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatInput.m; sourceTree = "<group>"; };
+		0893DC7F1997169700459A58 /* License */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = License; sourceTree = "<group>"; };
+		0893DC801997169700459A58 /* MessageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageCell.h; sourceTree = "<group>"; };
+		0893DC811997169700459A58 /* MessageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageCell.m; sourceTree = "<group>"; };
+		0893DC821997169700459A58 /* MyMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyMacros.h; sourceTree = "<group>"; };
+		0893DC831997169700459A58 /* Previous.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Previous.png; sourceTree = "<group>"; };
+		0893DC841997169700459A58 /* TopBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopBar.h; sourceTree = "<group>"; };
+		0893DC851997169700459A58 /* TopBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopBar.m; sourceTree = "<group>"; };
+		0893DC8D1997176C00459A58 /* back1.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = back1.jpeg; sourceTree = "<group>"; };
+		0893DC8E1997176C00459A58 /* back2.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = back2.jpeg; sourceTree = "<group>"; };
+		0893DC8F1997176C00459A58 /* back3.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = back3.jpeg; sourceTree = "<group>"; };
+		0893DC901997176C00459A58 /* back4.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = back4.jpeg; sourceTree = "<group>"; };
+		0893DC951997191400459A58 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		0893DC9C1997272E00459A58 /* Quickblox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Quickblox.framework; sourceTree = "<group>"; };
+		0893DC9E199727B300459A58 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		0893DCA0199727BB00459A58 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		0893DCA2199727C100459A58 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		0893DCA4199727CE00459A58 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		0893DCA6199727D300459A58 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		0893DCA8199727D900459A58 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		0893DCAA199727E000459A58 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		0893DCAC199727E600459A58 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
+		0893DCAE199727EC00459A58 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
+		0893DCB0199727F200459A58 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		0893DCB2199727F800459A58 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		0893DCB4199727FE00459A58 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		0893DCB61997280400459A58 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		0893DCB81997280A00459A58 /* libresolv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libresolv.dylib; path = usr/lib/libresolv.dylib; sourceTree = SDKROOT; };
+		0893DCBA1997280F00459A58 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
+		0893DCC319972A0C00459A58 /* MCLocalStorageService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCLocalStorageService.h; sourceTree = "<group>"; };
+		0893DCC419972A0C00459A58 /* MCLocalStorageService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCLocalStorageService.m; sourceTree = "<group>"; };
+		0893DCC619972A3400459A58 /* MCChatService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCChatService.h; sourceTree = "<group>"; };
+		0893DCC719972A3400459A58 /* MCChatService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCChatService.m; sourceTree = "<group>"; };
+		0893DCCA19972B3E00459A58 /* message_received.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = message_received.aiff; sourceTree = "<group>"; };
+		0893DCCB19972B3E00459A58 /* message_sent.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = message_sent.aiff; sourceTree = "<group>"; };
+		0893DCCE199748B600459A58 /* pic1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pic1.jpg; sourceTree = "<group>"; };
+		0893DCCF199748B600459A58 /* pic2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pic2.jpg; sourceTree = "<group>"; };
+		0893DCD0199748B600459A58 /* pic3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pic3.jpg; sourceTree = "<group>"; };
+		0893DCD1199748B600459A58 /* pic4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pic4.jpg; sourceTree = "<group>"; };
+		0893DCD2199748B600459A58 /* pic5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pic5.jpg; sourceTree = "<group>"; };
+		0893DCD3199748B600459A58 /* pic6.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pic6.jpg; sourceTree = "<group>"; };
+		0893DCD4199748B600459A58 /* pic7.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pic7.jpg; sourceTree = "<group>"; };
+		0893DCD5199748B600459A58 /* pic8.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pic8.jpg; sourceTree = "<group>"; };
+		0893DCD6199748B600459A58 /* pic9.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pic9.jpg; sourceTree = "<group>"; };
+		0893DCD7199748B600459A58 /* pic10.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pic10.jpg; sourceTree = "<group>"; };
+		0893DCD8199748B600459A58 /* pic11.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pic11.jpg; sourceTree = "<group>"; };
+		0893DCD9199748B600459A58 /* pic12.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pic12.jpg; sourceTree = "<group>"; };
+		0893DCDA199748B600459A58 /* pic13.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pic13.jpg; sourceTree = "<group>"; };
+		0893DCDB199748B600459A58 /* pic14.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pic14.jpg; sourceTree = "<group>"; };
+		0893DCDC199748B600459A58 /* pic15.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pic15.jpg; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		0893DC3F199715A700459A58 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0893DCBB1997280F00459A58 /* libxml2.dylib in Frameworks */,
+				0893DCB91997280A00459A58 /* libresolv.dylib in Frameworks */,
+				0893DCB71997280400459A58 /* libz.dylib in Frameworks */,
+				0893DCB5199727FE00459A58 /* Security.framework in Frameworks */,
+				0893DCB3199727F800459A58 /* QuartzCore.framework in Frameworks */,
+				0893DCB1199727F200459A58 /* AVFoundation.framework in Frameworks */,
+				0893DCAF199727EC00459A58 /* CoreVideo.framework in Frameworks */,
+				0893DCAD199727E600459A58 /* Accelerate.framework in Frameworks */,
+				0893DCAB199727E000459A58 /* CoreMedia.framework in Frameworks */,
+				0893DCA9199727D900459A58 /* AudioToolbox.framework in Frameworks */,
+				0893DCA7199727D300459A58 /* CoreData.framework in Frameworks */,
+				0893DCA5199727CE00459A58 /* CoreLocation.framework in Frameworks */,
+				0893DC48199715A700459A58 /* CoreGraphics.framework in Frameworks */,
+				0893DCA3199727C100459A58 /* MobileCoreServices.framework in Frameworks */,
+				0893DCA1199727BB00459A58 /* SystemConfiguration.framework in Frameworks */,
+				0893DC9F199727B300459A58 /* CFNetwork.framework in Frameworks */,
+				0893DC9D1997272E00459A58 /* Quickblox.framework in Frameworks */,
+				0893DC4A199715A700459A58 /* UIKit.framework in Frameworks */,
+				0893DC46199715A700459A58 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0893DC60199715A700459A58 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0893DC65199715A700459A58 /* XCTest.framework in Frameworks */,
+				0893DC67199715A700459A58 /* UIKit.framework in Frameworks */,
+				0893DC66199715A700459A58 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0893DC39199715A700459A58 = {
+			isa = PBXGroup;
+			children = (
+				0893DC4B199715A700459A58 /* MassChat */,
+				0893DC6A199715A700459A58 /* MassChatTests */,
+				0893DC44199715A700459A58 /* Frameworks */,
+				0893DC43199715A700459A58 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		0893DC43199715A700459A58 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0893DC42199715A700459A58 /* MassChat.app */,
+				0893DC63199715A700459A58 /* MassChatTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0893DC44199715A700459A58 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0893DCBA1997280F00459A58 /* libxml2.dylib */,
+				0893DCB81997280A00459A58 /* libresolv.dylib */,
+				0893DCB61997280400459A58 /* libz.dylib */,
+				0893DCB4199727FE00459A58 /* Security.framework */,
+				0893DCB2199727F800459A58 /* QuartzCore.framework */,
+				0893DCB0199727F200459A58 /* AVFoundation.framework */,
+				0893DCAE199727EC00459A58 /* CoreVideo.framework */,
+				0893DCAC199727E600459A58 /* Accelerate.framework */,
+				0893DCAA199727E000459A58 /* CoreMedia.framework */,
+				0893DCA8199727D900459A58 /* AudioToolbox.framework */,
+				0893DCA6199727D300459A58 /* CoreData.framework */,
+				0893DCA4199727CE00459A58 /* CoreLocation.framework */,
+				0893DCA2199727C100459A58 /* MobileCoreServices.framework */,
+				0893DCA0199727BB00459A58 /* SystemConfiguration.framework */,
+				0893DC9E199727B300459A58 /* CFNetwork.framework */,
+				0893DC9C1997272E00459A58 /* Quickblox.framework */,
+				0893DC45199715A700459A58 /* Foundation.framework */,
+				0893DC47199715A700459A58 /* CoreGraphics.framework */,
+				0893DC49199715A700459A58 /* UIKit.framework */,
+				0893DC64199715A700459A58 /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		0893DC4B199715A700459A58 /* MassChat */ = {
+			isa = PBXGroup;
+			children = (
+				0893DCBC199728AF00459A58 /* Services */,
+				0893DCC919972B3E00459A58 /* Sounds */,
+				0893DC8C1997176C00459A58 /* Images */,
+				0893DC7A1997169700459A58 /* ChatController */,
+				0893DC54199715A700459A58 /* MCAppDelegate.h */,
+				0893DC55199715A700459A58 /* MCAppDelegate.m */,
+				0893DC57199715A700459A58 /* Main.storyboard */,
+				0893DC5A199715A700459A58 /* MCViewController.h */,
+				0893DC5B199715A700459A58 /* MCViewController.m */,
+				0893DC5D199715A700459A58 /* Images.xcassets */,
+				0893DC4C199715A700459A58 /* Supporting Files */,
+			);
+			path = MassChat;
+			sourceTree = "<group>";
+		};
+		0893DC4C199715A700459A58 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				0893DC4D199715A700459A58 /* MassChat-Info.plist */,
+				0893DC4E199715A700459A58 /* InfoPlist.strings */,
+				0893DC51199715A700459A58 /* main.m */,
+				0893DC53199715A700459A58 /* MassChat-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		0893DC6A199715A700459A58 /* MassChatTests */ = {
+			isa = PBXGroup;
+			children = (
+				0893DC70199715A700459A58 /* MassChatTests.m */,
+				0893DC6B199715A700459A58 /* Supporting Files */,
+			);
+			path = MassChatTests;
+			sourceTree = "<group>";
+		};
+		0893DC6B199715A700459A58 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				0893DC6C199715A700459A58 /* MassChatTests-Info.plist */,
+				0893DC6D199715A700459A58 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		0893DC7A1997169700459A58 /* ChatController */ = {
+			isa = PBXGroup;
+			children = (
+				0893DC7B1997169700459A58 /* ChatController.h */,
+				0893DC7C1997169700459A58 /* ChatController.m */,
+				0893DC7D1997169700459A58 /* ChatInput.h */,
+				0893DC7E1997169700459A58 /* ChatInput.m */,
+				0893DC7F1997169700459A58 /* License */,
+				0893DC801997169700459A58 /* MessageCell.h */,
+				0893DC811997169700459A58 /* MessageCell.m */,
+				0893DC821997169700459A58 /* MyMacros.h */,
+				0893DC831997169700459A58 /* Previous.png */,
+				0893DC841997169700459A58 /* TopBar.h */,
+				0893DC851997169700459A58 /* TopBar.m */,
+			);
+			path = ChatController;
+			sourceTree = "<group>";
+		};
+		0893DC8C1997176C00459A58 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				0893DCCE199748B600459A58 /* pic1.jpg */,
+				0893DCCF199748B600459A58 /* pic2.jpg */,
+				0893DCD0199748B600459A58 /* pic3.jpg */,
+				0893DCD1199748B600459A58 /* pic4.jpg */,
+				0893DCD2199748B600459A58 /* pic5.jpg */,
+				0893DCD3199748B600459A58 /* pic6.jpg */,
+				0893DCD4199748B600459A58 /* pic7.jpg */,
+				0893DCD5199748B600459A58 /* pic8.jpg */,
+				0893DCD6199748B600459A58 /* pic9.jpg */,
+				0893DCD7199748B600459A58 /* pic10.jpg */,
+				0893DCD8199748B600459A58 /* pic11.jpg */,
+				0893DCD9199748B600459A58 /* pic12.jpg */,
+				0893DCDA199748B600459A58 /* pic13.jpg */,
+				0893DCDB199748B600459A58 /* pic14.jpg */,
+				0893DCDC199748B600459A58 /* pic15.jpg */,
+				0893DC951997191400459A58 /* Icon.png */,
+				0893DC8D1997176C00459A58 /* back1.jpeg */,
+				0893DC8E1997176C00459A58 /* back2.jpeg */,
+				0893DC8F1997176C00459A58 /* back3.jpeg */,
+				0893DC901997176C00459A58 /* back4.jpeg */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
+		0893DCBC199728AF00459A58 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				0893DCC319972A0C00459A58 /* MCLocalStorageService.h */,
+				0893DCC419972A0C00459A58 /* MCLocalStorageService.m */,
+				0893DCC619972A3400459A58 /* MCChatService.h */,
+				0893DCC719972A3400459A58 /* MCChatService.m */,
+			);
+			name = Services;
+			sourceTree = "<group>";
+		};
+		0893DCC919972B3E00459A58 /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				0893DCCA19972B3E00459A58 /* message_received.aiff */,
+				0893DCCB19972B3E00459A58 /* message_sent.aiff */,
+			);
+			path = Sounds;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		0893DC41199715A700459A58 /* MassChat */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0893DC74199715A700459A58 /* Build configuration list for PBXNativeTarget "MassChat" */;
+			buildPhases = (
+				0893DC3E199715A700459A58 /* Sources */,
+				0893DC3F199715A700459A58 /* Frameworks */,
+				0893DC40199715A700459A58 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MassChat;
+			productName = MassChat;
+			productReference = 0893DC42199715A700459A58 /* MassChat.app */;
+			productType = "com.apple.product-type.application";
+		};
+		0893DC62199715A700459A58 /* MassChatTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0893DC77199715A700459A58 /* Build configuration list for PBXNativeTarget "MassChatTests" */;
+			buildPhases = (
+				0893DC5F199715A700459A58 /* Sources */,
+				0893DC60199715A700459A58 /* Frameworks */,
+				0893DC61199715A700459A58 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0893DC69199715A700459A58 /* PBXTargetDependency */,
+			);
+			name = MassChatTests;
+			productName = MassChatTests;
+			productReference = 0893DC63199715A700459A58 /* MassChatTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		0893DC3A199715A700459A58 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = MC;
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = sunny;
+				TargetAttributes = {
+					0893DC62199715A700459A58 = {
+						TestTargetID = 0893DC41199715A700459A58;
+					};
+				};
+			};
+			buildConfigurationList = 0893DC3D199715A700459A58 /* Build configuration list for PBXProject "MassChat" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 0893DC39199715A700459A58;
+			productRefGroup = 0893DC43199715A700459A58 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				0893DC41199715A700459A58 /* MassChat */,
+				0893DC62199715A700459A58 /* MassChatTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		0893DC40199715A700459A58 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0893DC921997176C00459A58 /* back2.jpeg in Resources */,
+				0893DCDF199748B600459A58 /* pic3.jpg in Resources */,
+				0893DC941997176C00459A58 /* back4.jpeg in Resources */,
+				0893DC961997191400459A58 /* Icon.png in Resources */,
+				0893DC5E199715A700459A58 /* Images.xcassets in Resources */,
+				0893DCDD199748B600459A58 /* pic1.jpg in Resources */,
+				0893DCCC19972B3E00459A58 /* message_received.aiff in Resources */,
+				0893DCE6199748B600459A58 /* pic10.jpg in Resources */,
+				0893DCE3199748B600459A58 /* pic7.jpg in Resources */,
+				0893DCE0199748B600459A58 /* pic4.jpg in Resources */,
+				0893DC931997176C00459A58 /* back3.jpeg in Resources */,
+				0893DC50199715A700459A58 /* InfoPlist.strings in Resources */,
+				0893DCE9199748B600459A58 /* pic13.jpg in Resources */,
+				0893DCEA199748B600459A58 /* pic14.jpg in Resources */,
+				0893DCE4199748B600459A58 /* pic8.jpg in Resources */,
+				0893DCE1199748B600459A58 /* pic5.jpg in Resources */,
+				0893DC8A1997169700459A58 /* Previous.png in Resources */,
+				0893DCDE199748B600459A58 /* pic2.jpg in Resources */,
+				0893DCE7199748B600459A58 /* pic11.jpg in Resources */,
+				0893DCE2199748B600459A58 /* pic6.jpg in Resources */,
+				0893DCE5199748B600459A58 /* pic9.jpg in Resources */,
+				0893DC881997169700459A58 /* License in Resources */,
+				0893DC911997176C00459A58 /* back1.jpeg in Resources */,
+				0893DCEB199748B600459A58 /* pic15.jpg in Resources */,
+				0893DC59199715A700459A58 /* Main.storyboard in Resources */,
+				0893DCCD19972B3E00459A58 /* message_sent.aiff in Resources */,
+				0893DCE8199748B600459A58 /* pic12.jpg in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0893DC61199715A700459A58 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0893DC6F199715A700459A58 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		0893DC3E199715A700459A58 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0893DC56199715A700459A58 /* MCAppDelegate.m in Sources */,
+				0893DC5C199715A700459A58 /* MCViewController.m in Sources */,
+				0893DC52199715A700459A58 /* main.m in Sources */,
+				0893DCC519972A0C00459A58 /* MCLocalStorageService.m in Sources */,
+				0893DC891997169700459A58 /* MessageCell.m in Sources */,
+				0893DC8B1997169700459A58 /* TopBar.m in Sources */,
+				0893DC861997169700459A58 /* ChatController.m in Sources */,
+				0893DCC819972A3400459A58 /* MCChatService.m in Sources */,
+				0893DC871997169700459A58 /* ChatInput.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0893DC5F199715A700459A58 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0893DC71199715A700459A58 /* MassChatTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		0893DC69199715A700459A58 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0893DC41199715A700459A58 /* MassChat */;
+			targetProxy = 0893DC68199715A700459A58 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		0893DC4E199715A700459A58 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0893DC4F199715A700459A58 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		0893DC57199715A700459A58 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0893DC58199715A700459A58 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		0893DC6D199715A700459A58 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0893DC6E199715A700459A58 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		0893DC72199715A700459A58 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		0893DC73199715A700459A58 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		0893DC75199715A700459A58 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MassChat/MassChat-Prefix.pch";
+				INFOPLIST_FILE = "MassChat/MassChat-Info.plist";
+				OTHER_LDFLAGS = (
+					"-lxml2",
+					"-ObjC",
+					"-lstdc++",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		0893DC76199715A700459A58 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MassChat/MassChat-Prefix.pch";
+				INFOPLIST_FILE = "MassChat/MassChat-Info.plist";
+				OTHER_LDFLAGS = (
+					"-lxml2",
+					"-ObjC",
+					"-lstdc++",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		0893DC78199715A700459A58 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/MassChat.app/MassChat";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MassChat/MassChat-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "MassChatTests/MassChatTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		0893DC79199715A700459A58 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/MassChat.app/MassChat";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MassChat/MassChat-Prefix.pch";
+				INFOPLIST_FILE = "MassChatTests/MassChatTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		0893DC3D199715A700459A58 /* Build configuration list for PBXProject "MassChat" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0893DC72199715A700459A58 /* Debug */,
+				0893DC73199715A700459A58 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0893DC74199715A700459A58 /* Build configuration list for PBXNativeTarget "MassChat" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0893DC75199715A700459A58 /* Debug */,
+				0893DC76199715A700459A58 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0893DC77199715A700459A58 /* Build configuration list for PBXNativeTarget "MassChatTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0893DC78199715A700459A58 /* Debug */,
+				0893DC79199715A700459A58 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 0893DC3A199715A700459A58 /* Project object */;
+}

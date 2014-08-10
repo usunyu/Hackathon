@@ -24,20 +24,6 @@
     self.messagesTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 }
 
-#pragma mark CHAT CONTROLLER DELEGATE
-
-- (void) chatController:(ChatController *)chatController didSendMessage:(NSMutableDictionary *)message {
-    // Messages come prepackaged with the contents of the message and a timestamp in milliseconds
-    NSLog(@"Message Contents: %@", message[kMessageContent]);
-    NSLog(@"Timestamp: %@", message[kMessageTimestamp]);
-    
-    // Evaluate or add to the message here for example, if we wanted to assign the current userId:
-    message[@"sentByUserId"] = @"currentUserId";
-    
-    // Must add message to controller for it to show
-    [_chatController addNewMessage:message];
-}
-
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
@@ -105,7 +91,13 @@
     }else if (result.success && [result isKindOfClass:[QBUUserPagedResult class]]) {    // login success
         QBUUserPagedResult *res = (QBUUserPagedResult *)result;
         [MTLocalStorageService shared].users = res.users;
+        
+//        if (!_chatController) _chatController = [ChatController new];
+//        _chatController.delegate = self;
+//        _chatController.chatTitle = @"Simple Chat";
+//        _chatController.opponentImg = [UIImage imageNamed:@"tempUser.png"];
 //        [self presentViewController:_chatController animated:YES completion:nil];
+        
     }else if (result.success && [result isKindOfClass:QBChatHistoryMessageResult.class]) {
         QBChatHistoryMessageResult *res = (QBChatHistoryMessageResult *)result;
         NSArray *messages = res.messages;

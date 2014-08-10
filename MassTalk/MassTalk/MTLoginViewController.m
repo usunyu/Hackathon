@@ -22,7 +22,7 @@
 - (void) autoLogin
 {
     // Log in auto for test
-    _username = @"Sunny";
+    _username = @"Chris";
     _password = @"12345678";
     QBASessionCreationRequest *extendedAuthRequest = [QBASessionCreationRequest request];
     extendedAuthRequest.userLogin = _username;

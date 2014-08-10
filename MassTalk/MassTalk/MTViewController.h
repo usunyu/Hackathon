@@ -11,8 +11,6 @@
 
 @interface MTViewController : UIViewController <UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource, QBActionStatusDelegate>
 
-//@interface MTViewController : UIViewController <QBActionStatusDelegate, ChatControllerDelegate>
-
 @property (strong, nonatomic) IBOutlet UITextField *messageTextField;
 @property (strong, nonatomic) IBOutlet UIButton *sendMessageButton;
 @property (strong, nonatomic) IBOutlet UITableView *messagesTableView;
@@ -22,7 +20,5 @@
 @property (nonatomic, strong) QBChatDialog *dialog;
 @property (nonatomic, strong) NSMutableArray *messages;
 @property (nonatomic, strong) QBChatRoom *chatRoom;
-
-@property (strong, nonatomic) ChatController * chatController;
 
 @end
