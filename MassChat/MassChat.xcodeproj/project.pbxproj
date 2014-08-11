@@ -11,6 +11,7 @@
 		0832E4DE19977E0200D59A5A /* Menu.png in Resources */ = {isa = PBXBuildFile; fileRef = 0832E4DC19977E0200D59A5A /* Menu.png */; };
 		0832E4F419978B3200D59A5A /* MCSettingController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0832E4F219978B3200D59A5A /* MCSettingController.m */; };
 		0832E4F519978B3200D59A5A /* MCSettingController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0832E4F319978B3200D59A5A /* MCSettingController.xib */; };
+		0832E5A11998363400D59A5A /* Next.png in Resources */ = {isa = PBXBuildFile; fileRef = 0832E5A01998363400D59A5A /* Next.png */; };
 		0893DC46199715A700459A58 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0893DC45199715A700459A58 /* Foundation.framework */; };
 		0893DC48199715A700459A58 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0893DC47199715A700459A58 /* CoreGraphics.framework */; };
 		0893DC4A199715A700459A58 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0893DC49199715A700459A58 /* UIKit.framework */; };
@@ -91,6 +92,7 @@
 		0832E4F119978B3200D59A5A /* MCSettingController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCSettingController.h; sourceTree = "<group>"; };
 		0832E4F219978B3200D59A5A /* MCSettingController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCSettingController.m; sourceTree = "<group>"; };
 		0832E4F319978B3200D59A5A /* MCSettingController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MCSettingController.xib; sourceTree = "<group>"; };
+		0832E5A01998363400D59A5A /* Next.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Next.png; sourceTree = "<group>"; };
 		0893DC42199715A700459A58 /* MassChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MassChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0893DC45199715A700459A58 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		0893DC47199715A700459A58 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -314,6 +316,7 @@
 		0893DC7A1997169700459A58 /* ChatController */ = {
 			isa = PBXGroup;
 			children = (
+				0832E5A01998363400D59A5A /* Next.png */,
 				0832E4DB19977E0200D59A5A /* Map.png */,
 				0832E4DC19977E0200D59A5A /* Menu.png */,
 				0893DC7B1997169700459A58 /* ChatController.h */,
@@ -484,6 +487,7 @@
 				0893DC911997176C00459A58 /* back1.jpeg in Resources */,
 				0893DCEB199748B600459A58 /* pic15.jpg in Resources */,
 				0832E4F519978B3200D59A5A /* MCSettingController.xib in Resources */,
+				0832E5A11998363400D59A5A /* Next.png in Resources */,
 				0893DC59199715A700459A58 /* Main.storyboard in Resources */,
 				0893DCCD19972B3E00459A58 /* message_sent.aiff in Resources */,
 				0893DCE8199748B600459A58 /* pic12.jpg in Resources */,

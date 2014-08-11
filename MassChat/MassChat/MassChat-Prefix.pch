@@ -19,4 +19,7 @@
 
     #import "MCLocalStorageService.h"
     #import "MCChatService.h"
+
+    #import "TopBar.h"
+    #import "MyMacros.h"
 #endif

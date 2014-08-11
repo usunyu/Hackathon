@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MCSettingController : UIViewController
+@interface MCSettingController : UIViewController <TopBarDelegate>
+
+@property (strong, nonatomic) TopBar * topBar;
 
 @end

@@ -203,6 +203,58 @@ static int chatInputStartingHeight = 40;
     }
 }
 
+#pragma mark Custom UIViewControllers Present
+
+- (void) presentViewController:(UIViewController *)viewController withPushDirection: (NSString *) direction {
+    
+    [CATransaction begin];
+    
+    CATransition *transition = [CATransition animation];
+    transition.type = kCATransitionPush;
+    transition.subtype = direction;
+    transition.duration = 0.25f;
+    transition.fillMode = kCAFillModeForwards;
+    transition.removedOnCompletion = YES;
+    
+    [[UIApplication sharedApplication].keyWindow.layer addAnimation:transition forKey:@"transition"];
+    [[UIApplication sharedApplication] beginIgnoringInteractionEvents];
+    [CATransaction setCompletionBlock: ^ {
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(transition.duration * NSEC_PER_SEC)), dispatch_get_main_queue(), ^ {
+            [[UIApplication sharedApplication] endIgnoringInteractionEvents];
+        });
+    }];
+    
+    [self presentViewController:viewController animated:NO completion:NULL];
+    
+    [CATransaction commit];
+    
+}
+
+- (void) dismissViewControllerWithPushDirection:(NSString *) direction {
+    
+    [CATransaction begin];
+    
+    CATransition *transition = [CATransition animation];
+    transition.type = kCATransitionPush;
+    transition.subtype = direction;
+    transition.duration = 0.25f;
+    transition.fillMode = kCAFillModeForwards;
+    transition.removedOnCompletion = YES;
+    
+    [[UIApplication sharedApplication].keyWindow.layer addAnimation:transition forKey:@"transition"];
+    [[UIApplication sharedApplication] beginIgnoringInteractionEvents];
+    [CATransaction setCompletionBlock: ^ {
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(transition.duration * NSEC_PER_SEC)), dispatch_get_main_queue(), ^ {
+            [[UIApplication sharedApplication] endIgnoringInteractionEvents];
+        });
+    }];
+    
+    [self dismissViewControllerAnimated:NO completion:NULL];
+    
+    [CATransaction commit];
+    
+}
+
 #pragma mark TOP BAR DELEGATE
 
 - (void) topLeftPressed {
@@ -214,11 +266,12 @@ static int chatInputStartingHeight = 40;
 //        [self dismissViewControllerAnimated:YES completion:nil];
 //    }
     
-    MCSettingController *settingView = [[MCSettingController alloc] initWithNibName:nil bundle:nil];
-    settingView.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
-    [self presentViewController:settingView animated:YES completion:^{
+    MCSettingController *settingController = [[MCSettingController alloc] initWithNibName:nil bundle:nil];
+    /*
+    [self presentViewController:settingController animated:YES completion:^{}];
+     */
     
-    }];
+    [self presentViewController:settingController withPushDirection:@"fromLeft"];
 }
 
 - (void) topMiddlePressed {
