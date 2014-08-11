@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MCAppDelegate : UIResponder <UIApplicationDelegate>
+@interface MCAppDelegate : UIResponder <UIApplicationDelegate, PPRevealSideViewControllerDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
+@property (strong, nonatomic) PPRevealSideViewController *revealSideViewController;
 
 @end

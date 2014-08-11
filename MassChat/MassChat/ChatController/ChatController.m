@@ -17,6 +17,7 @@
 #import "MessageCell.h"
 #import "MyMacros.h"
 #import "MCSettingController.h"
+#import "MCLoginViewController.h"
 
 static NSString * kMessageCellReuseIdentifier = @"MessageCell";
 static int connectionStatusViewTag = 1701;
@@ -53,6 +54,11 @@ static int chatInputStartingHeight = 40;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    // Show login view
+    MCLoginViewController *loginController = [[MCLoginViewController alloc] initWithNibName:nil bundle:nil];
+    [MCPresentViewUtil present:self ViewController:loginController];
+    
 	// Do any additional setup after loading the view.
     
     // Custom initialization
@@ -134,7 +140,7 @@ static int chatInputStartingHeight = 40;
     [self.view addSubview:_myCollectionView];
     [self scrollToBottom];
     
-    [self.view addSubview:_topBar];
+//    [self.view addSubview:_topBar];
     
     // Scroll CollectionView Before We Start
     [self.view addSubview:_chatInput];
@@ -205,56 +211,6 @@ static int chatInputStartingHeight = 40;
 
 #pragma mark Custom UIViewControllers Present
 
-- (void) presentViewController:(UIViewController *)viewController withPushDirection: (NSString *) direction {
-    
-    [CATransaction begin];
-    
-    CATransition *transition = [CATransition animation];
-    transition.type = kCATransitionPush;
-    transition.subtype = direction;
-    transition.duration = 0.25f;
-    transition.fillMode = kCAFillModeForwards;
-    transition.removedOnCompletion = YES;
-    
-    [[UIApplication sharedApplication].keyWindow.layer addAnimation:transition forKey:@"transition"];
-    [[UIApplication sharedApplication] beginIgnoringInteractionEvents];
-    [CATransaction setCompletionBlock: ^ {
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(transition.duration * NSEC_PER_SEC)), dispatch_get_main_queue(), ^ {
-            [[UIApplication sharedApplication] endIgnoringInteractionEvents];
-        });
-    }];
-    
-    [self presentViewController:viewController animated:NO completion:NULL];
-    
-    [CATransaction commit];
-    
-}
-
-- (void) dismissViewControllerWithPushDirection:(NSString *) direction {
-    
-    [CATransaction begin];
-    
-    CATransition *transition = [CATransition animation];
-    transition.type = kCATransitionPush;
-    transition.subtype = direction;
-    transition.duration = 0.25f;
-    transition.fillMode = kCAFillModeForwards;
-    transition.removedOnCompletion = YES;
-    
-    [[UIApplication sharedApplication].keyWindow.layer addAnimation:transition forKey:@"transition"];
-    [[UIApplication sharedApplication] beginIgnoringInteractionEvents];
-    [CATransaction setCompletionBlock: ^ {
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(transition.duration * NSEC_PER_SEC)), dispatch_get_main_queue(), ^ {
-            [[UIApplication sharedApplication] endIgnoringInteractionEvents];
-        });
-    }];
-    
-    [self dismissViewControllerAnimated:NO completion:NULL];
-    
-    [CATransaction commit];
-    
-}
-
 #pragma mark TOP BAR DELEGATE
 
 - (void) topLeftPressed {
@@ -266,12 +222,12 @@ static int chatInputStartingHeight = 40;
 //        [self dismissViewControllerAnimated:YES completion:nil];
 //    }
     
-    MCSettingController *settingController = [[MCSettingController alloc] initWithNibName:nil bundle:nil];
+//    MCSettingController *settingController = [[MCSettingController alloc] initWithNibName:nil bundle:nil];
     /*
     [self presentViewController:settingController animated:YES completion:^{}];
      */
     
-    [self presentViewController:settingController withPushDirection:@"fromLeft"];
+//    [self presentViewController:settingController withPushDirection:@"fromLeft"];
 }
 
 - (void) topMiddlePressed {
