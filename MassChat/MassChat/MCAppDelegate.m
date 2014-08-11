@@ -7,7 +7,7 @@
 //
 
 #import "MCAppDelegate.h"
-#import "ChatController.h"
+#import "MCMainViewController.h"
 
 @implementation MCAppDelegate
 
@@ -19,13 +19,14 @@
     [QBSettings setAuthorizationSecret:@"nWfKxY9XnwBTY6p"];
     [QBSettings setAccountKey:@"uyk5BkyvY7uqCxZsMhit"];
     
-    // Set SideView Controller    
-    ChatController *main = [[ChatController alloc] initWithNibName:@"ChatController" bundle:nil];
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    // Set SideView Controller
+    MCMainViewController *main = [[MCMainViewController alloc] initWithNibName:nil bundle:nil];
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:main];
     _revealSideViewController = [[PPRevealSideViewController alloc] initWithRootViewController:nav];
     _revealSideViewController.delegate = self;
     self.window.rootViewController = _revealSideViewController;
-    
+    [self.window makeKeyAndVisible];
     // Override point for customization after application launch.
     return YES;
 }

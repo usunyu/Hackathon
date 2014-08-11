@@ -17,7 +17,6 @@
 #import "MessageCell.h"
 #import "MyMacros.h"
 #import "MCSettingController.h"
-#import "MCLoginViewController.h"
 
 static NSString * kMessageCellReuseIdentifier = @"MessageCell";
 static int connectionStatusViewTag = 1701;
@@ -54,21 +53,18 @@ static int chatInputStartingHeight = 40;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    // Show login view
-    MCLoginViewController *loginController = [[MCLoginViewController alloc] initWithNibName:nil bundle:nil];
-    [MCPresentViewUtil present:self ViewController:loginController];
-    
 	// Do any additional setup after loading the view.
     
     // Custom initialization
     self.view.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
     
     // TopBar
+    /*
     _topBar = [[TopBar alloc]init];
     _topBar.title = @"Chat Everywhere";
     _topBar.backgroundColor = [UIColor colorWithWhite:1 alpha:0.5];
     _topBar.delegate = self;
+     */
     
     // ChatInput
     _chatInput = [[ChatInput alloc]init];
@@ -111,6 +107,7 @@ static int chatInputStartingHeight = 40;
     _opponentBubbleColor = [UIColor whiteColor];
     
     // Add background
+
     UIImage *backImage =[UIImage imageNamed:@"back6.jpg"];
     
     // Resize the image
@@ -144,12 +141,7 @@ static int chatInputStartingHeight = 40;
     
     // Scroll CollectionView Before We Start
     [self.view addSubview:_chatInput];
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    
 }
 
 #pragma mark CLEAN UP
@@ -175,6 +167,12 @@ static int chatInputStartingHeight = 40;
     [[NSNotificationCenter defaultCenter]removeObserver:self];
     
     [super removeFromParentViewController];
+}
+
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
 }
 
 #pragma mark ROTATION CALLS
@@ -450,8 +448,9 @@ static int chatInputStartingHeight = 40;
     int r = arc4random() % 15;
     // TODO: use dict to map user and their pic
     UIImage *image = [UIImage imageNamed:[NSString stringWithFormat:@"pic%d.jpg", r]];
-    [image drawInRect:CGRectMake(0, 0, 100, 100)];
-//    self.opponentImg = image;
+//    [image drawInRect:CGRectMake(0, 0, 100, 100)];
+    
+    self.opponentImg = image;
     
     // Set the cell
     cell.opponentImage = image;

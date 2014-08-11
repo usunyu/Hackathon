@@ -27,7 +27,7 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    
+    /*
     // TopBar
     _topBar = [[TopBar alloc]init];
     _topBar.title = @"Settings";
@@ -39,6 +39,7 @@
     _topBar.leftBtn.hidden = YES;
     // change right button icon
     [_topBar.rightBtn setImage:[UIImage imageNamed:@"Next.png"] forState:UIControlStateNormal];
+     */
 }
 
 - (void) viewWillAppear:(BOOL)animated
@@ -46,17 +47,18 @@
     
     // Add views here, or they may create problems when launching in landscape
     
-    [self.view addSubview:_topBar];
+//    [self.view addSubview:_topBar];
 }
 
 #pragma mark CLEAN UP
 
 - (void) removeFromParentViewController {
-    
+    /*
     [_topBar removeFromSuperview];
     _topBar = nil;
     
     [super removeFromParentViewController];
+     */
 }
 
 - (void)didReceiveMemoryWarning
