@@ -28,6 +28,7 @@
     self.window.rootViewController = _revealSideViewController;
     [self.window makeKeyAndVisible];
     // Override point for customization after application launch.
+    
     return YES;
 }
 							

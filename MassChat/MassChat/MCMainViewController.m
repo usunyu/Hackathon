@@ -28,6 +28,9 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
+//    self.title = @"Chat Everywhere";
+    
     // Show login view
     MCLoginViewController *loginController = [[MCLoginViewController alloc] initWithNibName:nil bundle:nil];
     [MCPresentViewUtil present:self ViewController:loginController];
@@ -36,20 +39,13 @@
 - (void) viewWillAppear:(BOOL)animated
 {
     // Add views here, or they may create problems when launching in landscape
-    if([MCLocalStorageService shared].currentUser != nil){
-        // get dialogs
-        [QBChat dialogsWithExtendedRequest:nil delegate:self];
-    }
-    
     // Login to QuickBlox Chat
-    [[MCChatService instance] loginWithUser:[MCLocalStorageService shared].currentUser completionBlock:^{
+    QBUUser *currentUser = [MCLocalStorageService shared].currentUser;
+    [[MCChatService instance] loginWithUser:currentUser completionBlock:^{
         if([MCLocalStorageService shared].currentUser != nil){
             // get dialogs
             [QBChat dialogsWithExtendedRequest:nil delegate:self];
         }
-        
-        // Set chat notifications
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(chatRoomDidReceiveMessageNotification:) name:kNotificationDidReceiveNewMessageFromRoom object:nil];
     }];
     
     // Disable interact
@@ -66,7 +62,6 @@
 }
 
 #pragma mark QBActionStatusDelegate
-
 // QuickBlox API queries delegate
 - (void)completedWithResult:(Result *)result {
     // QuickBlox session creation  result
@@ -79,15 +74,18 @@
         self.dialog = dialogs[0];
         
         // Get dialogs users
+        /*
         PagedRequest *pagedRequest = [PagedRequest request];
         pagedRequest.perPage = 100;
         //
         NSSet *dialogsUsersIDs = pagedResult.dialogsUsersIDs;
         //
         [QBUsers usersWithIDs:[[dialogsUsersIDs allObjects] componentsJoinedByString:@","] pagedRequest:pagedRequest delegate:self];
-        
+        */
+         
         // Set title
-        self.title = self.dialog.name;
+//        self.title = self.dialog.name;
+        
         /*
         if(self.dialog.type == QBChatDialogTypePrivate){
             QBUUser *recipient = [MCLocalStorageService shared].usersAsDictionary[@(self.dialog.recipientID)];
@@ -115,6 +113,9 @@
         // Enable interact
         self.chatController.view.userInteractionEnabled = YES;
         self.view.userInteractionEnabled = YES;
+        
+        // Set chat notifications
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(chatRoomDidReceiveMessageNotification:) name:kNotificationDidReceiveNewMessageFromRoom object:nil];
     }
 }
 
