@@ -8,6 +8,8 @@
 
 #import "MCMainViewController.h"
 #import "MCLoginViewController.h"
+#import "MCTableViewController.h"
+
 
 @interface MCMainViewController ()
 
@@ -34,6 +36,44 @@
     // Show login view
     MCLoginViewController *loginController = [[MCLoginViewController alloc] initWithNibName:nil bundle:nil];
     [MCPresentViewUtil present:self ViewController:loginController];
+    
+    UIButton *_leftBtn = [UIButton buttonWithType:UIButtonTypeSystem];
+    _leftBtn.frame = CGRectMake(4, 20, 30, 30);
+    _leftBtn.autoresizingMask = UIViewAutoresizingFlexibleRightMargin;
+    _leftBtn.imageEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 0);
+    [_leftBtn addTarget:self action:@selector(showLeft) forControlEvents:UIControlEventTouchUpInside];
+    [_leftBtn setImage:[UIImage imageNamed:@"menu.png"] forState:UIControlStateNormal];
+    
+    UIBarButtonItem *left = [[UIBarButtonItem alloc] initWithCustomView:_leftBtn];
+//    UIBarButtonItem *left = [[UIBarButtonItem alloc] initWithTitle:@"Left" style:UIBarButtonItemStylePlain target:self action:@selector(showLeft)];
+    self.navigationItem.leftBarButtonItem = PP_AUTORELEASE(left);
+    
+    UIButton *_rightBtn = [UIButton buttonWithType:UIButtonTypeSystem];
+    _rightBtn.frame = CGRectMake(4, 20, 33, 33);
+    _rightBtn.autoresizingMask = UIViewAutoresizingFlexibleRightMargin;
+    _rightBtn.imageEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 0);
+    [_rightBtn addTarget:self action:@selector(showRight) forControlEvents:UIControlEventTouchUpInside];
+    [_rightBtn setImage:[UIImage imageNamed:@"map2.png"] forState:UIControlStateNormal];
+    
+    UIBarButtonItem *right = [[UIBarButtonItem alloc] initWithCustomView:_rightBtn];
+    //    UIBarButtonItem *left = [[UIBarButtonItem alloc] initWithTitle:@"Left" style:UIBarButtonItemStylePlain target:self action:@selector(showLeft)];
+    self.navigationItem.rightBarButtonItem = PP_AUTORELEASE(right);
+    
+    _offset = 70;
+    _animated = YES;
+}
+
+- (void)showLeft {
+    MCTableViewController *c = [[MCTableViewController alloc] initWithStyle:UITableViewStylePlain];
+
+    [self.revealSideViewController pushViewController:c onDirection:PPRevealSideDirectionLeft withOffset:_offset animated:_animated completion:^{ PPRSLog(@"This is the end!");
+    }];
+    
+    PP_RELEASE(c);
+}
+
+- (void)showRight {
+    
 }
 
 - (void) viewWillAppear:(BOOL)animated

@@ -24,5 +24,6 @@
 //    #import "MyMacros.h"
 
     #import "MCPresentViewUtil.h"
+    #import "MCScaleImageUtil.h"
     #import "PPRevealSideViewController.h"
 #endif
