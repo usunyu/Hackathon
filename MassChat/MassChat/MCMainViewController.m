@@ -8,6 +8,9 @@
 
 #import "MCMainViewController.h"
 #import "MCLoginViewController.h"
+#import "MCMenuViewController.h"
+#import "MCMapViewController.h"
+
 
 @interface MCMainViewController ()
 
@@ -34,6 +37,52 @@
     // Show login view
     MCLoginViewController *loginController = [[MCLoginViewController alloc] initWithNibName:nil bundle:nil];
     [MCPresentViewUtil present:self ViewController:loginController];
+    
+    // Disable interact
+    self.chatController.view.userInteractionEnabled = NO;
+    self.view.userInteractionEnabled = NO;
+    
+    UIButton *_leftBtn = [UIButton buttonWithType:UIButtonTypeSystem];
+    _leftBtn.frame = CGRectMake(4, 20, 30, 30);
+    _leftBtn.autoresizingMask = UIViewAutoresizingFlexibleRightMargin;
+    _leftBtn.imageEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 0);
+    [_leftBtn addTarget:self action:@selector(showLeft) forControlEvents:UIControlEventTouchUpInside];
+    [_leftBtn setImage:[UIImage imageNamed:@"menu.png"] forState:UIControlStateNormal];
+    
+    UIBarButtonItem *left = [[UIBarButtonItem alloc] initWithCustomView:_leftBtn];
+//    UIBarButtonItem *left = [[UIBarButtonItem alloc] initWithTitle:@"Left" style:UIBarButtonItemStylePlain target:self action:@selector(showLeft)];
+    self.navigationItem.leftBarButtonItem = PP_AUTORELEASE(left);
+    
+    UIButton *_rightBtn = [UIButton buttonWithType:UIButtonTypeSystem];
+    _rightBtn.frame = CGRectMake(4, 20, 33, 33);
+    _rightBtn.autoresizingMask = UIViewAutoresizingFlexibleRightMargin;
+    _rightBtn.imageEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 0);
+    [_rightBtn addTarget:self action:@selector(showRight) forControlEvents:UIControlEventTouchUpInside];
+    [_rightBtn setImage:[UIImage imageNamed:@"map2.png"] forState:UIControlStateNormal];
+    
+    UIBarButtonItem *right = [[UIBarButtonItem alloc] initWithCustomView:_rightBtn];
+    //    UIBarButtonItem *left = [[UIBarButtonItem alloc] initWithTitle:@"Left" style:UIBarButtonItemStylePlain target:self action:@selector(showLeft)];
+    self.navigationItem.rightBarButtonItem = PP_AUTORELEASE(right);
+    
+    _offset = 70;
+    _animated = YES;
+}
+
+- (void)showLeft {
+    MCMenuViewController *menuController = [[MCMenuViewController alloc] initWithStyle:UITableViewStylePlain];
+
+    [self.revealSideViewController pushViewController:menuController onDirection:PPRevealSideDirectionLeft withOffset:_offset animated:_animated completion:^{ PPRSLog(@"This is the end!");
+    }];
+    
+    PP_RELEASE(menuController);
+}
+
+- (void)showRight {
+    MCMapViewController *mapController = [[MCMapViewController alloc] initWithNibName:nil bundle:nil];
+    
+    [MCPresentViewUtil present:self ViewController:mapController];
+    
+    PP_RELEASE(mapController);
 }
 
 - (void) viewWillAppear:(BOOL)animated
@@ -47,10 +96,6 @@
             [QBChat dialogsWithExtendedRequest:nil delegate:self];
         }
     }];
-    
-    // Disable interact
-    self.chatController.view.userInteractionEnabled = NO;
-    self.view.userInteractionEnabled = NO;
     
     // Show chat view
     if (!self.chatController) {

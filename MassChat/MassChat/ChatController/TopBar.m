@@ -31,10 +31,10 @@
     if (self) {
         if (CGRectEqualToRect(frame, CGRectZero)) {
             if (UIInterfaceOrientationIsPortrait([UIApplication sharedApplication].statusBarOrientation)) {
-                self.frame = CGRectMake(0, 0, ScreenWidth(), 60);
+                self.frame = CGRectMake(0, 0, ScreenWidth(), 65);
             }
             else {
-                self.frame = CGRectMake(0, 0, ScreenHeight(), 60);
+                self.frame = CGRectMake(0, 0, ScreenHeight(), 65);
             }
         }
         
@@ -56,9 +56,9 @@
         [_leftBtn addTarget:self action:@selector(topLeftBtnPressed:) forControlEvents:UIControlEventTouchUpInside];
         _leftBtn.autoresizingMask = UIViewAutoresizingFlexibleRightMargin;
         _leftBtn.imageEdgeInsets = UIEdgeInsetsMake(7, 7, 7, 7);
-        [_leftBtn setImage:[UIImage imageNamed:@"Menu.png"] forState:UIControlStateNormal];
+        [_leftBtn setImage:[UIImage imageNamed:@"previous2.png"] forState:UIControlStateNormal];
         [self addSubview:_leftBtn];
-        
+        /*
         _rightBtn = [UIButton buttonWithType:UIButtonTypeSystem];
         _rightBtn.frame = CGRectMake(width(self) - 4, 20, -40, 40);
         [_rightBtn setTintColor:_tintColor];
@@ -77,7 +77,7 @@
         [_middleBtn addTarget:self action:@selector(topMiddleBtnPressed:) forControlEvents:UIControlEventTouchUpInside];
         _middleBtn.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
         [self addSubview:_middleBtn];
-        
+        */
         _shadowLine = [CAGradientLayer layer];
         _shadowLine.frame = CGRectMake(0, self.bounds.size.height, self.bounds.size.width, -0.5);
         _shadowLine.colors = [NSArray arrayWithObjects:(id)[[UIColor lightGrayColor] CGColor], (id)[[UIColor clearColor] CGColor], nil];

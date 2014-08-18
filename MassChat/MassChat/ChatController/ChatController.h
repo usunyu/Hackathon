@@ -39,7 +39,7 @@ FOUNDATION_EXPORT NSString * const kMessageTimestamp;
 
 @end
 
-@interface ChatController : UIViewController<UICollectionViewDataSource, UICollectionViewDelegate, TopBarDelegate, ChatInputDelegate>
+@interface ChatController : UIViewController<UICollectionViewDataSource, UICollectionViewDelegate /*,TopBarDelegate*/, ChatInputDelegate>
 
 @property (retain, nonatomic) id<ChatControllerDelegate>delegate;
 

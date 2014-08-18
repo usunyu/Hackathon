@@ -107,25 +107,11 @@ static int chatInputStartingHeight = 40;
     _opponentBubbleColor = [UIColor whiteColor];
     
     // Add background
-
-    UIImage *backImage =[UIImage imageNamed:@"back6.jpg"];
-    
+    UIImage *backImage =[UIImage imageNamed:@"back7.png"];
     // Resize the image
     CGSize size = CGSizeMake(_myCollectionView.bounds.size.width, _myCollectionView.bounds.size.height);
-    // Create a bitmap graphics context
-    // This will also set it as the current context
-    UIGraphicsBeginImageContext(size);
     
-    // Draw the scaled image in the current context
-    [backImage drawInRect:CGRectMake(0, 0, size.width, size.height)];
-    
-    // Create a new image from current context
-    UIImage* scaledImage = UIGraphicsGetImageFromCurrentImageContext();
-    
-    // Pop the current context from the stack
-    UIGraphicsEndImageContext();
-    
-    self.view.backgroundColor = [UIColor colorWithPatternImage:scaledImage];
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[MCScaleImageUtil scale:backImage toSize:size]];
     _myCollectionView.backgroundColor = [UIColor clearColor];
 }
 

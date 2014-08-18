@@ -10,6 +10,10 @@
 #import "ChatController.h"
 
 @interface MCMainViewController : UIViewController <ChatControllerDelegate, QBActionStatusDelegate>
+{
+    BOOL _animated;
+    CGFloat _offset;
+}
 
 @property (strong, nonatomic) ChatController * chatController;
 

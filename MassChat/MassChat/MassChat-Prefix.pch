@@ -16,13 +16,15 @@
     #import <MobileCoreServices/MobileCoreServices.h>
     #import <SystemConfiguration/SystemConfiguration.h>
     #import <Quickblox/Quickblox.h>
+    #import <MapKit/MapKit.h>
 
     #import "MCLocalStorageService.h"
     #import "MCChatService.h"
 
-//    #import "TopBar.h"
-//    #import "MyMacros.h"
+    #import "TopBar.h"
+    #import "MyMacros.h"
 
     #import "MCPresentViewUtil.h"
+    #import "MCScaleImageUtil.h"
     #import "PPRevealSideViewController.h"
 #endif
