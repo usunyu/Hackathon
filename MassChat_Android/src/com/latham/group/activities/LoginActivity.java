@@ -23,8 +23,7 @@ import com.quickblox.module.users.model.QBUser;
 public class LoginActivity extends Activity implements QBCallback, View.OnClickListener {
 
     private static final String TAG = LoginActivity.class.getSimpleName();
-    private static final String DEFAULT_LOGIN = "tao";
-    private static final String DEFAULT_PASSWORD = "12345678";
+    
     private Button loginButton;
     private EditText loginEdit;
     private EditText passwordEdit;
@@ -41,8 +40,8 @@ public class LoginActivity extends Activity implements QBCallback, View.OnClickL
 
         loginEdit = (EditText) findViewById(R.id.loginEdit);
         passwordEdit = (EditText) findViewById(R.id.passwordEdit);
-        loginEdit.setText(DEFAULT_LOGIN);
-        passwordEdit.setText(DEFAULT_PASSWORD);
+        loginEdit.setText(App.DEFAULT_USER_NAME);
+        passwordEdit.setText(App.DEFAULT_USER_PASSWORD);
         loginButton = (Button) findViewById(R.id.loginButton);
         loginButton.setOnClickListener(this);
         progressDialog = new ProgressDialog(this);

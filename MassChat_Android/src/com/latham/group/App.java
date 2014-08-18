@@ -16,71 +16,88 @@ import com.quickblox.module.users.model.QBUser;
 public class App extends Application {
 
 	public static int LOCATION_MIN_TIME = 20000;
-    public static int LOCATION_PER_PAGE = 10;
-    public static int PLAY_SERVICE_REQUEST_CODE = 10;
+	public static int LOCATION_PER_PAGE = 10;
+	public static int PLAY_SERVICE_REQUEST_CODE = 10;
+
+	public static final int AUTHENTICATION_REQUEST = 1;
+	public static final String USER_PROFILE = "user_profile";
 	
-    private QBUser qbUser;
-    private int currentPage = 1;
-    private Map<Integer, QBUser> allQbUsers = new HashMap<Integer, QBUser>();
-    private Map<Integer, List<ChatMessage>> allMessages = new HashMap<Integer, List<ChatMessage>>();
-    private QBChatRoom currentRoom;
+	public static final String DEFAULT_USER_NAME = "tao";
+    public static final String DEFAULT_USER_PASSWORD = "12345678";
+    public static final String LOG_TAG = "Tao";
 
-    @Override
-    public void onCreate() {
-        super.onCreate();
-    }
+	// Tao
+	// public static final String APP_ID = "13189";
+	// public static final String AUTH_KEY = "zeyZY5C45PY58er";
+	// public static final String AUTH_SECRET = "O69NzHYX7LDfJHJ";
 
-    public QBUser getQbUser() {
-        return qbUser;
-    }
+	// Sun
+	public static final String APP_ID = "13062";
+	public static final String AUTH_KEY = "N6zpRQgnHaZTXHq";
+	public static final String AUTH_SECRET = "nWfKxY9XnwBTY6p";
 
-    public void setQbUser(QBUser qbUser) {
-        this.qbUser = qbUser;
-    }
+	private QBUser qbUser;
+	private int currentPage = 1;
+	private Map<Integer, QBUser> allQbUsers = new HashMap<Integer, QBUser>();
+	private Map<Integer, List<ChatMessage>> allMessages = new HashMap<Integer, List<ChatMessage>>();
+	private QBChatRoom currentRoom;
 
-    public List<QBUser> getAllQbUsers() {
-        List<QBUser> qbUsers = new ArrayList<QBUser>(allQbUsers.values());
-        Collections.sort(qbUsers, new Comparator<QBUser>() {
-            @Override
-            public int compare(QBUser lhs, QBUser rhs) {
-                return (int) Math.signum(lhs.getId() - rhs.getId());
-            }
-        });
-        return qbUsers;
-    }
+	@Override
+	public void onCreate() {
+		super.onCreate();
+	}
 
-    public void addQBUsers(QBUser... qbUsers) {
-        for (QBUser qbUser : qbUsers) {
-            allQbUsers.put(qbUser.getId(), qbUser);
-        }
-    }
+	public QBUser getQbUser() {
+		return qbUser;
+	}
 
-    public List<ChatMessage> getMessages(int userId) {
-        return allMessages.get(userId);
-    }
+	public void setQbUser(QBUser qbUser) {
+		this.qbUser = qbUser;
+	}
 
-    public void addMessage(int userId, ChatMessage message) {
-        List<ChatMessage> messages = allMessages.get(userId);
-        if (messages == null) {
-            messages = new ArrayList<ChatMessage>();
-            allMessages.put(userId, messages);
-        }
-        messages.add(message);
-    }
+	public List<QBUser> getAllQbUsers() {
+		List<QBUser> qbUsers = new ArrayList<QBUser>(allQbUsers.values());
+		Collections.sort(qbUsers, new Comparator<QBUser>() {
+			@Override
+			public int compare(QBUser lhs, QBUser rhs) {
+				return (int) Math.signum(lhs.getId() - rhs.getId());
+			}
+		});
+		return qbUsers;
+	}
 
-    public int getCurrentPage() {
-        return currentPage;
-    }
+	public void addQBUsers(QBUser... qbUsers) {
+		for (QBUser qbUser : qbUsers) {
+			allQbUsers.put(qbUser.getId(), qbUser);
+		}
+	}
 
-    public void setCurrentPage(int currentPage) {
-        this.currentPage = currentPage;
-    }
+	public List<ChatMessage> getMessages(int userId) {
+		return allMessages.get(userId);
+	}
 
-    public QBChatRoom getCurrentRoom() {
-        return currentRoom;
-    }
+	public void addMessage(int userId, ChatMessage message) {
+		List<ChatMessage> messages = allMessages.get(userId);
+		if (messages == null) {
+			messages = new ArrayList<ChatMessage>();
+			allMessages.put(userId, messages);
+		}
+		messages.add(message);
+	}
 
-    public void setCurrentRoom(QBChatRoom room) {
-        this.currentRoom = room;
-    }
+	public int getCurrentPage() {
+		return currentPage;
+	}
+
+	public void setCurrentPage(int currentPage) {
+		this.currentPage = currentPage;
+	}
+
+	public QBChatRoom getCurrentRoom() {
+		return currentRoom;
+	}
+
+	public void setCurrentRoom(QBChatRoom room) {
+		this.currentRoom = room;
+	}
 }

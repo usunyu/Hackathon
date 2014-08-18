@@ -1484,8 +1484,9 @@ containing a value of this type.
         public static final int powered_by_google_dark=0x7f02007c;
         public static final int powered_by_google_light=0x7f02007d;
         public static final int qb_splash_bg=0x7f02007e;
-        public static final int qb_splash_hero=0x7f02007f;
-        public static final int qb_splash_link=0x7f020080;
+        public static final int qb_splash_bg1=0x7f02007f;
+        public static final int qb_splash_hero=0x7f020080;
+        public static final int qb_splash_link=0x7f020081;
     }
     public static final class id {
         public static final int action_bar=0x7f05002e;
