@@ -107,8 +107,7 @@ static int chatInputStartingHeight = 40;
     _opponentBubbleColor = [UIColor whiteColor];
     
     // Add background
-
-    UIImage *backImage =[UIImage imageNamed:@"back6.jpg"];
+    UIImage *backImage =[UIImage imageNamed:@"back7.png"];
     // Resize the image
     CGSize size = CGSizeMake(_myCollectionView.bounds.size.width, _myCollectionView.bounds.size.height);
     

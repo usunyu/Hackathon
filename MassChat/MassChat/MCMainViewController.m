@@ -8,7 +8,8 @@
 
 #import "MCMainViewController.h"
 #import "MCLoginViewController.h"
-#import "MCTableViewController.h"
+#import "MCMenuViewController.h"
+#import "MCMapViewController.h"
 
 
 @interface MCMainViewController ()
@@ -37,6 +38,10 @@
     MCLoginViewController *loginController = [[MCLoginViewController alloc] initWithNibName:nil bundle:nil];
     [MCPresentViewUtil present:self ViewController:loginController];
     
+    // Disable interact
+    self.chatController.view.userInteractionEnabled = NO;
+    self.view.userInteractionEnabled = NO;
+    
     UIButton *_leftBtn = [UIButton buttonWithType:UIButtonTypeSystem];
     _leftBtn.frame = CGRectMake(4, 20, 30, 30);
     _leftBtn.autoresizingMask = UIViewAutoresizingFlexibleRightMargin;
@@ -64,16 +69,20 @@
 }
 
 - (void)showLeft {
-    MCTableViewController *c = [[MCTableViewController alloc] initWithStyle:UITableViewStylePlain];
+    MCMenuViewController *menuController = [[MCMenuViewController alloc] initWithStyle:UITableViewStylePlain];
 
-    [self.revealSideViewController pushViewController:c onDirection:PPRevealSideDirectionLeft withOffset:_offset animated:_animated completion:^{ PPRSLog(@"This is the end!");
+    [self.revealSideViewController pushViewController:menuController onDirection:PPRevealSideDirectionLeft withOffset:_offset animated:_animated completion:^{ PPRSLog(@"This is the end!");
     }];
     
-    PP_RELEASE(c);
+    PP_RELEASE(menuController);
 }
 
 - (void)showRight {
+    MCMapViewController *mapController = [[MCMapViewController alloc] initWithNibName:nil bundle:nil];
     
+    [MCPresentViewUtil present:self ViewController:mapController];
+    
+    PP_RELEASE(mapController);
 }
 
 - (void) viewWillAppear:(BOOL)animated
@@ -87,10 +96,6 @@
             [QBChat dialogsWithExtendedRequest:nil delegate:self];
         }
     }];
-    
-    // Disable interact
-    self.chatController.view.userInteractionEnabled = NO;
-    self.view.userInteractionEnabled = NO;
     
     // Show chat view
     if (!self.chatController) {
