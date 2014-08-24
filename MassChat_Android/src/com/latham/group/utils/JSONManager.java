@@ -4,7 +4,8 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import com.latham.group.model.User;
+import com.quickblox.module.users.model.QBUser;
+
 
 /*
  * Manage the conversion between JSON and other data structure 
@@ -28,11 +29,12 @@ public class JSONManager {
 		return json;
 	}
 
-	public static User getUserFromJSON(JSONObject json_user) throws JSONException {
+	public static QBUser getUserFromJSON(JSONObject json_user) throws JSONException {
 		// Log.d("JSON", "user: " + json_user.toString());
-		User user = new User();
-		user.setName(json_user.getString("username"));
+		QBUser user = new QBUser();
+		user.setLogin(json_user.getString("username"));
 		user.setPassword(json_user.getString("password"));
+		user.setId(json_user.getInt("id"));
 		return user;
 	}
 }

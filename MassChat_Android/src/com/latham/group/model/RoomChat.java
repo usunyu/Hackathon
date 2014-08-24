@@ -1,16 +1,19 @@
 package com.latham.group.model;
 
+import java.io.IOException;
 import java.util.Calendar;
 import java.util.Date;
 
 import org.jivesoftware.smack.XMPPException;
 import org.jivesoftware.smack.packet.Message;
+import org.json.JSONException;
 
 import android.util.Log;
 import android.widget.Toast;
 
 import com.latham.group.App;
 import com.latham.group.activities.ChatActivity;
+import com.latham.group.utils.UserManager;
 import com.quickblox.module.chat.QBChatRoom;
 import com.quickblox.module.chat.QBChatService;
 import com.quickblox.module.chat.listeners.ChatMessageListener;
@@ -45,7 +48,7 @@ public class RoomChat implements Chat, RoomListener, ChatMessageListener {
 
     @Override
     public void sendMessage(String message) throws XMPPException {
-        Log.d("MSG", "send message " + message);
+        Log.d(TAG, "send message " + message);
     	if (chatRoom != null) {
             chatRoom.sendMessage(message);
         } else {
@@ -88,8 +91,17 @@ public class RoomChat implements Chat, RoomListener, ChatMessageListener {
         }
         // Show message
         String sender = QBChatUtils.parseRoomOccupant(message.getFrom());
-        QBUser qbUser = ((App) (chatActivity.getApplication())).getQbUser();
-        if (sender.equals(qbUser.getFullName()) || sender.equals(qbUser.getId().toString())) {
+        QBUser user = null;
+		try {
+			user = UserManager.getInstance().getCurrentUser();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+        if (sender.equals(user.getLogin()) || sender.equals(user.getId().toString())) {
             chatActivity.showMessage(new ChatMessage(message.getBody(), "me", time, false));
         } else {
             chatActivity.showMessage(new ChatMessage(message.getBody(), sender, time, true));

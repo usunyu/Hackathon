@@ -8,7 +8,7 @@ import org.json.JSONObject;
 import android.content.Context;
 
 import com.latham.group.App;
-import com.latham.group.model.User;
+import com.quickblox.module.users.model.QBUser;
 
 /*
  * Manage the session, profile and subscription of current user
@@ -38,12 +38,12 @@ public final class UserManager {
 		return fileManager.has(App.USER_PROFILE);
 	}
 
-	public User getCurrentUser() throws IOException, JSONException {
+	public QBUser getCurrentUser() throws IOException, JSONException {
 		if (!hasUser())
 			return null;
 		String user_str = fileManager.read(App.USER_PROFILE);
 		JSONObject json_user = JSONManager.getJSONFromString(user_str);
-		User user = JSONManager.getUserFromJSON(json_user);
+		QBUser user = JSONManager.getUserFromJSON(json_user);
 		return user;
 	}
 
@@ -51,13 +51,14 @@ public final class UserManager {
 		fileManager.delete(App.USER_PROFILE);
 	}
 
-	public void setCurrentUser(String name, String password) throws JSONException, IOException {
+	public void setCurrentUser(QBUser user) throws JSONException, IOException {
 		JSONObject json_user = new JSONObject();
-		json_user.put("username", name);
-		json_user.put("password", password);
+		json_user.put("username", user.getLogin());
+		json_user.put("password", user.getPassword());
+		json_user.put("id", user.getId());
 		storeUserProfileToInternalStorage(json_user.toString());
 	}
-	
+
 	private void storeUserProfileToInternalStorage(String profile_str) throws IOException {
 		fileManager.write(profile_str, App.USER_PROFILE);
 	}

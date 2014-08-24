@@ -18,16 +18,19 @@ import android.widget.Toast;
 import com.latham.group.App;
 import com.latham.group.R;
 import com.latham.group.model.RoomChat;
-import com.latham.group.model.User;
 import com.latham.group.utils.UserManager;
 import com.quickblox.core.QBCallback;
 import com.quickblox.core.QBSettings;
 import com.quickblox.core.result.Result;
 import com.quickblox.module.auth.QBAuth;
 import com.quickblox.module.chat.QBChatService;
+import com.quickblox.module.chat.listeners.SessionCallback;
+import com.quickblox.module.users.model.QBUser;
 
 public class SplashActivity extends Activity {
-
+	
+	private static final String TAG = SplashActivity.class.getSimpleName();
+	
 	private ProgressBar progressBar;
 	private UserManager userManager;
 
@@ -46,7 +49,7 @@ public class SplashActivity extends Activity {
 			return;
 		}
 		
-		User currUsre = null;
+		QBUser currUser = null;
 		try {
 			currUser = userManager.getCurrentUser();
 		} catch (IOException e) {
@@ -63,33 +66,7 @@ public class SplashActivity extends Activity {
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 		if (resultCode == RESULT_OK) {
-			QBChatService.getInstance().addConnectionListener(new ConnectionListener() {
-
-				@Override
-				public void reconnectionSuccessful() {
-					showToast("connectionClosed");
-				}
-
-				@Override
-				public void reconnectionFailed(Exception e) {
-					showToast("reconnectionFailed " + e.getLocalizedMessage());
-				}
-
-				@Override
-				public void reconnectingIn(int arg0) {
-					// TODO Auto-generated method stub
-				}
-
-				@Override
-				public void connectionClosedOnError(Exception e) {
-					showToast("connectionClosed on error " + e.getLocalizedMessage());
-				}
-
-				@Override
-				public void connectionClosed() {
-					showToast("connectionClosed");
-				}
-			});
+			QBChatService.getInstance().addConnectionListener(new ChatConnectionListener());
 			joinRoom();
 			finish();
 		}
@@ -134,7 +111,7 @@ public class SplashActivity extends Activity {
 			public void onComplete(Result result) {
 				progressBar.setVisibility(View.GONE);
 				if (result.isSuccess()) {
-					Log.d(App.LOG_TAG, "Login new user");
+					Log.d(TAG, "Login new user");
 					showAuthenticateDialog();
 				} else {
 					showErrorDialog(result.getErrors().toString());
@@ -147,15 +124,15 @@ public class SplashActivity extends Activity {
 		});
 	}
 
-	private void createSessionForExistingUser(User user) {
-		QBAuth.createSession(user.getName(), user.getPassword(), new QBCallback() {
+	private void createSessionForExistingUser(QBUser user) {
+		final QBUser currUser = user;
+		QBAuth.createSession(new QBCallback() {
 			@Override
 			public void onComplete(Result result) {
 				progressBar.setVisibility(View.GONE);
 				if (result.isSuccess()) {
-					Log.d(App.LOG_TAG, "Login existing user");
-					joinRoom();
-					finish();
+					Log.d(TAG, "Login existing user");
+					loginWithUser(currUser);	
 				} else {
 					showErrorDialog(result.getErrors().toString());
 				}
@@ -168,6 +145,7 @@ public class SplashActivity extends Activity {
 	}
 
 	private void joinRoom() {
+		Log.d(TAG, "join room");
 		Intent intent = new Intent(this, ChatActivity.class);
 		Bundle bundle = createChatBundle(getRoomName(), false);
 		intent.putExtras(bundle);
@@ -192,5 +170,49 @@ public class SplashActivity extends Activity {
 				Toast.makeText(SplashActivity.this, msg, Toast.LENGTH_LONG).show();
 			}
 		});
+	}
+	
+	private void loginWithUser(QBUser user){
+		QBChatService.getInstance().loginWithUser(user, new SessionCallback() {
+			@Override
+			public void onLoginSuccess() {
+				Log.i(TAG, "login success");
+				QBChatService.getInstance().addConnectionListener(new ChatConnectionListener());
+				joinRoom();
+				finish();	
+			}
+
+			@Override
+			public void onLoginError(String error) {
+				Log.i(TAG, "login error");
+			}
+		});
+	}
+	
+	public class ChatConnectionListener implements ConnectionListener{
+		@Override
+		public void reconnectionSuccessful() {
+			showToast("connectionClosed");
+		}
+
+		@Override
+		public void reconnectionFailed(Exception e) {
+			showToast("reconnectionFailed " + e.getLocalizedMessage());
+		}
+
+		@Override
+		public void reconnectingIn(int arg0) {
+			// TODO Auto-generated method stub
+		}
+
+		@Override
+		public void connectionClosedOnError(Exception e) {
+			showToast("connectionClosed on error " + e.getLocalizedMessage());
+		}
+
+		@Override
+		public void connectionClosed() {
+			showToast("connectionClosed");
+		}
 	}
 }
