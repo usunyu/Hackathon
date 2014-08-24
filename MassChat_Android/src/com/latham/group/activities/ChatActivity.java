@@ -71,7 +71,7 @@ public class ChatActivity extends Activity {
 		// as you specify a parent activity in AndroidManifest.xml.
 		int id = item.getItemId();
 		if (id == R.id.action_settings) {
-			Log.d("Tao", "Show Map");
+			Log.d(TAG, "Show Map");
 			Intent intent = new Intent(this, MapActivity.class);
 			startActivity(intent);
 			return true;
@@ -129,7 +129,7 @@ public class ChatActivity extends Activity {
 	}
 
 	public void showMessage(ChatMessage message) {
-		Log.d("MSG", "show message " + message.toString());
+		Log.d(TAG, "show message " + message.toString());
 		saveMessageToHistory(message);
 		adapter.add(message);
 		adapter.notifyDataSetChanged();

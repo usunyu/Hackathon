@@ -1,5 +1,9 @@
 package com.latham.group.activities;
 
+import java.io.IOException;
+
+import org.json.JSONException;
+
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
@@ -7,11 +11,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 
 import com.latham.group.App;
 import com.latham.group.R;
+import com.latham.group.utils.UserManager;
 import com.quickblox.core.QBCallback;
 import com.quickblox.core.result.Result;
 import com.quickblox.module.chat.QBChatService;
@@ -20,93 +26,107 @@ import com.quickblox.module.chat.smack.SmackAndroid;
 import com.quickblox.module.users.QBUsers;
 import com.quickblox.module.users.model.QBUser;
 
-public class LoginActivity extends Activity implements QBCallback, View.OnClickListener {
+/*
+ * Login the User
+ */
+public class LoginActivity extends Activity {
 
-    private static final String TAG = LoginActivity.class.getSimpleName();
-    private static final String DEFAULT_LOGIN = "tao";
-    private static final String DEFAULT_PASSWORD = "12345678";
-    private Button loginButton;
-    private EditText loginEdit;
-    private EditText passwordEdit;
-    private ProgressDialog progressDialog;
-    private String login;
-    private String password;
-    private QBUser user;
-    private SmackAndroid smackAndroid;
+	private static final String TAG = LoginActivity.class.getSimpleName();
 
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+	private Button loginButton;
+	private EditText loginEdit;
+	private EditText passwordEdit;
+	private ProgressDialog progressDialog;
+	private String login;
+	private String password;
+	private QBUser currUser;
+	private SmackAndroid smackAndroid;
 
-        loginEdit = (EditText) findViewById(R.id.loginEdit);
-        passwordEdit = (EditText) findViewById(R.id.passwordEdit);
-        loginEdit.setText(DEFAULT_LOGIN);
-        passwordEdit.setText(DEFAULT_PASSWORD);
-        loginButton = (Button) findViewById(R.id.loginButton);
-        loginButton.setOnClickListener(this);
-        progressDialog = new ProgressDialog(this);
-        progressDialog.setMessage("Loading");
+	@Override
+	public void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_login);
 
-        smackAndroid = SmackAndroid.init(this);
-    }
+		loginEdit = (EditText) findViewById(R.id.loginEdit);
+		passwordEdit = (EditText) findViewById(R.id.passwordEdit);
+		loginEdit.setText(App.DEFAULT_USER_NAME);
+		passwordEdit.setText(App.DEFAULT_USER_PASSWORD);
+		progressDialog = new ProgressDialog(this);
+		progressDialog.setMessage("Loading");
+		loginButton = (Button) findViewById(R.id.loginButton);
+		loginButton.setOnClickListener(new OnClickListener() {
 
-    @Override
-    protected void onDestroy() {
-        smackAndroid.onDestroy();
-        super.onDestroy();
-    }
+			@Override
+			public void onClick(View view) {
+				login = loginEdit.getText().toString();
+				password = passwordEdit.getText().toString();
+				currUser = new QBUser(login, password);
+				progressDialog.show();
+				
+				QBUsers.signIn(currUser, new QBCallback() {
 
-    @Override
-    public void onClick(View view) {
-        login = loginEdit.getText().toString();
-        password = passwordEdit.getText().toString();
+					@Override
+					public void onComplete(Result result) {
+						try {
+							if (result.isSuccess()) {
+								UserManager.getInstance().setCurrentUser(currUser);
+								
+								if (progressDialog != null) {
+									progressDialog.dismiss();
+								}
+								loginWithUser(currUser);
+							} else {
+								AlertDialog.Builder dialog = new AlertDialog.Builder(getBaseContext());
+								dialog.setMessage("Errors: " + result.getErrors()).create().show();
+							}
+						} catch (JSONException e) {
+							e.printStackTrace();
+						} catch (IOException e) {
+							e.printStackTrace();
+						}
+					}
 
-        user = new QBUser(login, password);
+					@Override
+					public void onComplete(Result result, Object context) {
+					}
+				});
+			}
+		});
 
-        progressDialog.show();
-        QBUsers.signIn(user, this);
-    }
+		smackAndroid = SmackAndroid.init(this);
+	}
 
-    @Override
-    public void onBackPressed() {
-        super.onBackPressed();
-        Intent intent = new Intent();
-        setResult(RESULT_CANCELED, intent);
-        finish();
-    }
+	@Override
+	protected void onDestroy() {
+		smackAndroid.onDestroy();
+		super.onDestroy();
+	}
 
-    @Override
-    public void onComplete(Result result) {
-        if (result.isSuccess()) {
-            ((App)getApplication()).setQbUser(user);
-            QBChatService.getInstance().loginWithUser(user, new SessionCallback() {
-                @Override
-                public void onLoginSuccess() {
-                    if (progressDialog != null) {
-                        progressDialog.dismiss();
-                    }
-                    Log.i(TAG, "success when login");
+	@Override
+	public void onBackPressed() {
+		super.onBackPressed();
+		setResult(RESULT_CANCELED, new Intent());
+		finish();
+	}
+	
+	private void loginWithUser(QBUser user){
+		QBChatService.getInstance().loginWithUser(user, new SessionCallback() {
+			@Override
+			public void onLoginSuccess() {
+				if (progressDialog != null) {
+					progressDialog.dismiss();
+				}
+				Log.i(TAG, "success when login");
 
-                    Intent intent = new Intent();
-                    setResult(RESULT_OK, intent);
-                    finish();
-                }
+				setResult(RESULT_OK, new Intent());
+				finish();
+			}
 
-                @Override
-                public void onLoginError(String error) {
-                    Log.i(TAG, "error when login");
-                }
+			@Override
+			public void onLoginError(String error) {
+				Log.i(TAG, "error when login");
+			}
+		});
+	}
 
-            });
-        } else {
-            AlertDialog.Builder dialog = new AlertDialog.Builder(this);
-            dialog.setMessage("Error(s) occurred. Look into DDMS log for details, " +
-                    "please. Errors: " + result.getErrors()).create().show();
-        }
-    }
-
-    @Override
-    public void onComplete(Result result, Object context) {
-    }
 }

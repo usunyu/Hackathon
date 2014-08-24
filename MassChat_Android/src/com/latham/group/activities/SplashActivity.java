@@ -1,10 +1,12 @@
 package com.latham.group.activities;
 
+import java.io.IOException;
+
 import org.jivesoftware.smack.ConnectionListener;
+import org.json.JSONException;
 
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -16,33 +18,21 @@ import android.widget.Toast;
 import com.latham.group.App;
 import com.latham.group.R;
 import com.latham.group.model.RoomChat;
+import com.latham.group.utils.UserManager;
 import com.quickblox.core.QBCallback;
 import com.quickblox.core.QBSettings;
 import com.quickblox.core.result.Result;
 import com.quickblox.module.auth.QBAuth;
 import com.quickblox.module.chat.QBChatService;
-import com.quickblox.module.users.QBUsers;
+import com.quickblox.module.chat.listeners.SessionCallback;
 import com.quickblox.module.users.model.QBUser;
 
-public class SplashActivity extends Activity implements QBCallback {
-
-	private static final int AUTHENTICATION_REQUEST = 1;
-
-	// Tao
-	private static final String APP_ID = "13189";
-	private static final String AUTH_KEY = "zeyZY5C45PY58er";
-	private static final String AUTH_SECRET = "O69NzHYX7LDfJHJ";
-
-	public static final String USER_LOGIN = "mark";
-	public static final String USER_PASSWORD = "12345678";
-
-	// Sun
-	// private static final String APP_ID = "13062";
-	// private static final String AUTH_KEY = "N6zpRQgnHaZTXHq";
-	// private static final String AUTH_SECRET = "nWfKxY9XnwBTY6p";
-
+public class SplashActivity extends Activity {
+	
+	private static final String TAG = SplashActivity.class.getSimpleName();
+	
 	private ProgressBar progressBar;
-	private ConnectionListener connectionListener;
+	private UserManager userManager;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -50,38 +40,39 @@ public class SplashActivity extends Activity implements QBCallback {
 		setContentView(R.layout.activity_splash);
 
 		progressBar = (ProgressBar) findViewById(R.id.progressBar);
+		userManager = UserManager.createInstance(getApplicationContext());
 
-		QBSettings.getInstance().fastConfigInit(APP_ID, AUTH_KEY, AUTH_SECRET);
-		QBAuth.createSession(this);
+		QBSettings.getInstance().fastConfigInit(App.APP_ID, App.AUTH_KEY, App.AUTH_SECRET);
+
+		if (!userManager.hasUser()) {
+			createSessionForNewUser();
+			return;
+		}
+		
+		QBUser currUser = null;
+		try {
+			currUser = userManager.getCurrentUser();
+		} catch (IOException e) {
+			e.printStackTrace();
+		} catch (JSONException e) {
+			e.printStackTrace();
+		}
+		createSessionForExistingUser(currUser);
 	}
 
+	/*
+	 * After LoginActivity or RegisterActivity finishes   
+	 */
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 		if (resultCode == RESULT_OK) {
-			connectionListener = new ChatConnectionListener();
-			QBChatService.getInstance().addConnectionListener(connectionListener);
-			enterRoom();
+			QBChatService.getInstance().addConnectionListener(new ChatConnectionListener());
+			joinRoom();
 			finish();
 		}
 	}
-	
-	private void enterRoom(){
-		Intent intent = new Intent(this, ChatActivity.class);
-		Bundle bundle = createChatBundle(getRoomName(), false);
-        intent.putExtras(bundle);
-        startActivity(intent);	
-		//((App)getApplication()).setCurrentRoom();
-	}
-	
-	public static void start(Context context, Bundle bundle) {
-        
-    }
-	
-	private String getRoomName(){
-		return "FB";
-	}
 
-	public void showAuthenticateDialog() {
+	private void showAuthenticateDialog() {
 		AlertDialog.Builder builder = new AlertDialog.Builder(this);
 		builder.setTitle("Authorize first");
 		builder.setItems(new String[] { "Login", "Register" }, new DialogInterface.OnClickListener() {
@@ -90,39 +81,16 @@ public class SplashActivity extends Activity implements QBCallback {
 				switch (which) {
 				case 0:
 					Intent intent = new Intent(SplashActivity.this, LoginActivity.class);
-					startActivityForResult(intent, AUTHENTICATION_REQUEST);
+					startActivityForResult(intent, App.AUTHENTICATION_REQUEST);
 					break;
 				case 1:
 					intent = new Intent(SplashActivity.this, RegistrationActivity.class);
-					startActivityForResult(intent, AUTHENTICATION_REQUEST);
+					startActivityForResult(intent, App.AUTHENTICATION_REQUEST);
 					break;
 				}
 			}
 		});
 		builder.show();
-	}
-
-	@Override
-	public void onComplete(Result result) {
-		progressBar.setVisibility(View.GONE);
-		
-		if (result.isSuccess()) {
-			QBUser user = ((App) getApplication()).getQbUser();
-			if (user == null) {
-				Log.d("Tao", "First time login");
-				showAuthenticateDialog();
-			}else{ 
-				Log.d("Tao", "Already login");
-				QBUsers.signIn(user, this);
-				enterRoom();
-				finish();
-			}
-		} else {
-			AlertDialog.Builder dialog = new AlertDialog.Builder(this);
-			dialog.setMessage(
-					"Error(s) occurred. Look into DDMS log for details, " + "please. Errors: " + result.getErrors())
-					.create().show();
-		}
 	}
 
 	private Bundle createChatBundle(String roomName, boolean createChat) {
@@ -137,36 +105,62 @@ public class SplashActivity extends Activity implements QBCallback {
 		return bundle;
 	}
 
-	@Override
-	public void onComplete(Result result, Object context) {
+	private void createSessionForNewUser() {
+		QBAuth.createSession(new QBCallback() {
+			@Override
+			public void onComplete(Result result) {
+				progressBar.setVisibility(View.GONE);
+				if (result.isSuccess()) {
+					Log.d(TAG, "Login new user");
+					showAuthenticateDialog();
+				} else {
+					showErrorDialog(result.getErrors().toString());
+				}
+			}
+
+			@Override
+			public void onComplete(Result result, Object context) {
+			}
+		});
 	}
 
-	private class ChatConnectionListener implements ConnectionListener {
+	private void createSessionForExistingUser(QBUser user) {
+		final QBUser currUser = user;
+		QBAuth.createSession(new QBCallback() {
+			@Override
+			public void onComplete(Result result) {
+				progressBar.setVisibility(View.GONE);
+				if (result.isSuccess()) {
+					Log.d(TAG, "Login existing user");
+					loginWithUser(currUser);	
+				} else {
+					showErrorDialog(result.getErrors().toString());
+				}
+			}
 
-		@Override
-		public void connectionClosed() {
-			showToast("connectionClosed");
-		}
+			@Override
+			public void onComplete(Result result, Object context) {
+			}
+		});
+	}
 
-		@Override
-		public void connectionClosedOnError(Exception e) {
-			showToast("connectionClosed on error" + e.getLocalizedMessage());
-		}
+	private void joinRoom() {
+		Log.d(TAG, "join room");
+		Intent intent = new Intent(this, ChatActivity.class);
+		Bundle bundle = createChatBundle(getRoomName(), false);
+		intent.putExtras(bundle);
+		startActivity(intent);
+		// ((App)getApplication()).setCurrentRoom();
+	}
 
-		@Override
-		public void reconnectingIn(int i) {
+	private String getRoomName() {
+		// return "FB";
+		return "DemoRoom";
+	}
 
-		}
-
-		@Override
-		public void reconnectionSuccessful() {
-
-		}
-
-		@Override
-		public void reconnectionFailed(Exception e) {
-
-		}
+	private void showErrorDialog(String err_msg) {
+		AlertDialog.Builder dialog = new AlertDialog.Builder(getBaseContext());
+		dialog.setMessage("Error: " + err_msg).create().show();
 	}
 
 	private void showToast(final String msg) {
@@ -176,5 +170,49 @@ public class SplashActivity extends Activity implements QBCallback {
 				Toast.makeText(SplashActivity.this, msg, Toast.LENGTH_LONG).show();
 			}
 		});
+	}
+	
+	private void loginWithUser(QBUser user){
+		QBChatService.getInstance().loginWithUser(user, new SessionCallback() {
+			@Override
+			public void onLoginSuccess() {
+				Log.i(TAG, "login success");
+				QBChatService.getInstance().addConnectionListener(new ChatConnectionListener());
+				joinRoom();
+				finish();	
+			}
+
+			@Override
+			public void onLoginError(String error) {
+				Log.i(TAG, "login error");
+			}
+		});
+	}
+	
+	public class ChatConnectionListener implements ConnectionListener{
+		@Override
+		public void reconnectionSuccessful() {
+			showToast("connectionClosed");
+		}
+
+		@Override
+		public void reconnectionFailed(Exception e) {
+			showToast("reconnectionFailed " + e.getLocalizedMessage());
+		}
+
+		@Override
+		public void reconnectingIn(int arg0) {
+			// TODO Auto-generated method stub
+		}
+
+		@Override
+		public void connectionClosedOnError(Exception e) {
+			showToast("connectionClosed on error " + e.getLocalizedMessage());
+		}
+
+		@Override
+		public void connectionClosed() {
+			showToast("connectionClosed");
+		}
 	}
 }
